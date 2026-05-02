@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <LanguageData>
   <!-- ==================== 通用UI ==================== -->
   <RimTalk_Memory_Title>{0}的记忆</RimTalk_Memory_Title>
@@ -326,6 +326,7 @@
   <RimTalk_Settings_MemoryTypesSection>记忆类型开关</RimTalk_Settings_MemoryTypesSection>
   <RimTalk_Settings_ActionMemory>行动记忆</RimTalk_Settings_ActionMemory>
   <RimTalk_Settings_ConversationMemory>对话记忆</RimTalk_Settings_ConversationMemory>
+  <RimTalk_Settings_PrisonerMemory>囚犯扩展记忆</RimTalk_Settings_PrisonerMemory>
   
   <!-- 实验性功能 -->
   <RimTalk_Settings_ExperimentalSection>🚀 实验性功能</RimTalk_Settings_ExperimentalSection>

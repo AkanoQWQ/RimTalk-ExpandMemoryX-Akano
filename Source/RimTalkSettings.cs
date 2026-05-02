@@ -91,6 +91,7 @@ namespace RimTalk.MemoryPatch
         // 记忆类型开关
         public bool enableActionMemory = true;
         public bool enableConversationMemory = true;
+        public bool enablePrisonerMemory = false;
         
         // Pawn状态常识自动生成
         public bool enablePawnStatusKnowledge = false;
@@ -215,6 +216,7 @@ namespace RimTalk.MemoryPatch
             Scribe_Values.Look(ref enableMemoryUI, "memoryPatch_enableMemoryUI", true);
             Scribe_Values.Look(ref enableActionMemory, "memoryPatch_enableActionMemory", true);
             Scribe_Values.Look(ref enableConversationMemory, "memoryPatch_enableConversationMemory", true);
+            Scribe_Values.Look(ref enablePrisonerMemory, "memoryPatch_enable_prisoner_extendmemory", false);
             Scribe_Values.Look(ref enablePawnStatusKnowledge, "pawnStatus_enablePawnStatusKnowledge", false);
             Scribe_Values.Look(ref enableEventRecordKnowledge, "eventRecord_enableEventRecordKnowledge", false);
 
@@ -698,6 +700,7 @@ namespace RimTalk.MemoryPatch
         {
             listing.CheckboxLabeled("RimTalk_Settings_ActionMemory".Translate(), ref enableActionMemory);
             listing.CheckboxLabeled("RimTalk_Settings_ConversationMemory".Translate(), ref enableConversationMemory);
+            listing.CheckboxLabeled("RimTalk_Settings_PrisonerMemory".Translate(), ref enablePrisonerMemory);
         }
 
         private void DrawExperimentalFeaturesSettings(Listing_Standard listing)

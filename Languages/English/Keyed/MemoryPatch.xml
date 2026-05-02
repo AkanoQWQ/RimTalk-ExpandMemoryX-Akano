@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <LanguageData>
   <!-- ==================== Common UI ==================== -->
   <RimTalk_Memory_Title>{0}'s Memories</RimTalk_Memory_Title>
@@ -328,6 +328,7 @@
   <RimTalk_Settings_MemoryTypesSection>Memory Type Toggles</RimTalk_Settings_MemoryTypesSection>
   <RimTalk_Settings_ActionMemory>Action Memory</RimTalk_Settings_ActionMemory>
   <RimTalk_Settings_ConversationMemory>Conversation Memory</RimTalk_Settings_ConversationMemory>
+  <RimTalk_Settings_PrisonerMemory>Prisoner Extended Memory</RimTalk_Settings_PrisonerMemory>
   
   <!-- Experimental Features -->
   <RimTalk_Settings_ExperimentalSection>🚀 Experimental Features</RimTalk_Settings_ExperimentalSection>

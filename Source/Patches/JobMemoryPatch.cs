@@ -1,4 +1,4 @@
-﻿using HarmonyLib;
+using HarmonyLib;
 using RimWorld;
 using Verse;
 using Verse.AI;
@@ -17,31 +17,14 @@ namespace RimTalk.Patches
     {
         private static readonly FieldInfo pawnField = AccessTools.Field(typeof(Pawn_JobTracker), "pawn");
         
-        /// <summary>
-        /// ⭐ v3.5.2: 检测是否为配置了链接催化剂的殖民地动物或机械体
-        /// </summary>
-        private static bool IsColonyAnimalWithVocalLink(Pawn pawn)
-        {
-            if (pawn == null || pawn.Faction != Faction.OfPlayer) return false;
-            if (pawn.RaceProps?.Humanlike == true) return false;
-            
-            try
-            {
-                var vocalLinkDef = DefDatabase<HediffDef>.GetNamed("VocalLinkImplant", false);
-                return vocalLinkDef != null && pawn.health?.hediffSet?.HasHediff(vocalLinkDef) == true;
-            }
-            catch
-            {
-                return false;
-            }
-        }
-        
         [HarmonyPostfix]
         public static void Postfix(Pawn_JobTracker __instance, Job newJob)
         {
             Pawn pawn = pawnField?.GetValue(__instance) as Pawn;
             // ⭐ v3.5.2: 扩展到殖民者 + 配置了链接催化剂的殖民地动物/机械体
-            if (pawn == null || (!pawn.IsColonist && !IsColonyAnimalWithVocalLink(pawn)) || newJob == null || newJob.def == null)
+            // Now also covers other optional pawns (prisoners via settings).
+            // Extracted to a helper for future extensions and better maintainability.
+            if (pawn == null || !MemoryManager.ShouldExtendMemory(pawn) || newJob == null || newJob.def == null)
                 return;
 
             var memoryComp = pawn.TryGetComp<PawnMemoryComp>();

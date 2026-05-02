@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -223,7 +223,9 @@ namespace RimTalk.Memory
                     foreach (var pawn in map.mapPawns.AllPawnsSpawned)
                     {
                         // ⭐ v3.5.2: 扩展到殖民者 + 配置了链接催化剂的殖民地动物/机械体
-                        if (pawn.IsColonist || IsColonyAnimalWithVocalLink(pawn))
+                        // Now also covers other optional pawns (prisoners via settings).
+                        // Extracted to a helper for future extensions and better maintainability.
+                        if (ShouldExtendMemory(pawn))
                         {
                             // 将总结任务加入队列
                             summarizationQueue.Enqueue(pawn);
@@ -253,7 +255,9 @@ namespace RimTalk.Memory
                 foreach (var pawn in map.mapPawns.AllPawnsSpawned)
                 {
                     // ⭐ v3.5.2: 扩展到殖民者 + 配置了链接催化剂的殖民地动物/机械体
-                    if (pawn.IsColonist || IsColonyAnimalWithVocalLink(pawn))
+                    // Now also covers other optional pawns (prisoners via settings).
+                    // Extracted to a helper for future extensions and better maintainability.
+                    if (ShouldExtendMemory(pawn))
                     {
                         // 检查是否有需要总结的记忆
                         var fourLayerComp = pawn.TryGetComp<FourLayerMemoryComp>();
@@ -617,7 +621,9 @@ namespace RimTalk.Memory
                 foreach (var pawn in map.mapPawns.AllPawnsSpawned)
                 {
                     // ⭐ v3.5.2: 扩展到殖民者 + 配置了链接催化剂的殖民地动物/机械体
-                    if (pawn.IsColonist || IsColonyAnimalWithVocalLink(pawn))
+                    // Now also covers other optional pawns (prisoners via settings).
+                    // Extracted to a helper for future extensions and better maintainability.
+                    if (ShouldExtendMemory(pawn))
                     {
                         // 尝试新的四层记忆组件
                         var fourLayerComp = pawn.TryGetComp<FourLayerMemoryComp>();
@@ -679,7 +685,9 @@ namespace RimTalk.Memory
                 foreach (var pawn in map.mapPawns.AllPawnsSpawned)
                 {
                     // ⭐ v3.5.2: 扩展到殖民者 + 配置了链接催化剂的殖民地动物/机械体
-                    if (!pawn.IsColonist && !IsColonyAnimalWithVocalLink(pawn))
+                    // Now also covers other optional pawns (prisoners via settings).
+                    // Extracted to a helper for future extensions and better maintainability.
+                    if (!ShouldExtendMemory(pawn))
                         continue;
                     
                     var fourLayerComp = pawn.TryGetComp<FourLayerMemoryComp>();
@@ -983,6 +991,15 @@ namespace RimTalk.Memory
         }
         
         #region 辅助方法
+        public static bool ShouldExtendMemory(Pawn pawn)
+        {
+            if (pawn == null) return false;
+            bool includePrisoners = RimTalkMemoryPatchMod.Settings?.enablePrisonerMemory ?? false;
+            return pawn.IsColonist
+                || IsColonyAnimalWithVocalLink(pawn)
+                || (includePrisoners && pawn.IsPrisonerOfColony);
+        }
+
         /// <summary>
         /// ⭐ v3.5.2: 检测是否为配置了链接催化剂的殖民地动物或机械体
         /// </summary>
