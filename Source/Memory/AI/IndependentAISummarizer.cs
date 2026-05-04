@@ -434,6 +434,7 @@ namespace RimTalk.Memory.AI
 
             Task.Run(async () =>
             {
+                string fallbackResult = null;
                 try
                 {
                     string result = await CallAIAsync(prompt);
@@ -450,26 +451,27 @@ namespace RimTalk.Memory.AI
                                     .OrderBy(k => k, StringComparer.Ordinal) // 字母顺序升序
                                     .Take(MAX_CACHE_SIZE / 2)
                                     .ToList();
-                                
+
                                 foreach (var key in toRemove)
                                 {
                                     completedSummaries.Remove(key);
                                 }
-                                
+
 
                                 if (Prefs.DevMode)
                                 {
                                     Log.Message($"[AI Summarizer] ?? Cleaned cache: {toRemove.Count} entries removed (deterministic by key order), {completedSummaries.Count} remaining");
                                 }
                             }
-                            
+
                             completedSummaries[cacheKey] = result;
                         }
+                        // Invoke callbacks with the successful result
                         lock (callbackMap)
                         {
-                            if (callbackMap.TryGetValue(cacheKey, out var callbacks))
+                            if (callbackMap.TryGetValue(cacheKey, out var successCallbacks))
                             {
-                                foreach (var cb in callbacks)
+                                foreach (var cb in successCallbacks)
                                 {
                                     lock (mainThreadActions)
                                     {
@@ -480,13 +482,38 @@ namespace RimTalk.Memory.AI
                             }
                         }
                     }
+                    else
+                    {
+                        // AI call returned null after all retries exhausted
+                        fallbackResult = "Summary fail (Ignore this as an input)";
+                        Log.Warning($"[AI Summarizer] All retries failed for {pawn.LabelShort}, using fallback");
+                    }
                 }
                 catch (Exception ex)
                 {
                     Log.Error($"[AI Summarizer] Task failed: {ex.Message}");
+                    fallbackResult = "Summary fail (Ignore this as an input)";
                 }
                 finally
                 {
+                    // Invoke callbacks with fallback on failure
+                    if (fallbackResult != null)
+                    {
+                        lock (callbackMap)
+                        {
+                            if (callbackMap.TryGetValue(cacheKey, out var failCallbacks))
+                            {
+                                foreach (var cb in failCallbacks)
+                                {
+                                    lock (mainThreadActions)
+                                    {
+                                        mainThreadActions.Enqueue(() => cb(fallbackResult));
+                                    }
+                                }
+                                callbackMap.Remove(cacheKey);
+                            }
+                        }
+                    }
                     lock (pendingSummaries)
                     {
                         pendingSummaries.Remove(cacheKey);
