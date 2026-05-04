@@ -22,6 +22,8 @@
 		<AssemblyName>RimTalkMemoryPatch</AssemblyName>
 
 		<!-- 编译项优化 -->
+		<GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+		<GenerateTargetFrameworkAttribute>false</GenerateTargetFrameworkAttribute>
 		<UseSharedCompilation>false</UseSharedCompilation>
 		<UseHostCompilerIfAvailable>false</UseHostCompilerIfAvailable>
 		<Deterministic>false</Deterministic>
