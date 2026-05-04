@@ -79,7 +79,8 @@ namespace RimTalk.MemoryPatch
         public string independentModel = "gpt-3.5-turbo";
         public string independentProvider = "OpenAI";
         public bool enablePromptCaching = true;
-        
+        public string customApiFields = "";  // Custom API fields written by user
+
         // AI 总结提示词配置
         public string dailySummaryPrompt = "";  // 空字符串表示使用默认
         public string deepArchivePrompt = "";   // 空字符串表示使用默认
@@ -212,6 +213,7 @@ namespace RimTalk.MemoryPatch
             Scribe_Values.Look(ref dailySummaryPrompt, "ai_dailySummaryPrompt", "");
             Scribe_Values.Look(ref deepArchivePrompt, "ai_deepArchivePrompt", "");
             Scribe_Values.Look(ref summaryMaxTokens, "ai_summaryMaxTokens", 8000);  // ⭐ v3.4.0: 与字段默认值同步
+            Scribe_Values.Look(ref customApiFields, "ai_customApiFields", "");
 
             Scribe_Values.Look(ref enableMemoryUI, "memoryPatch_enableMemoryUI", true);
             Scribe_Values.Look(ref enableActionMemory, "memoryPatch_enableActionMemory", true);
@@ -559,6 +561,14 @@ namespace RimTalk.MemoryPatch
             
             listing.Label("RimTalk_Settings_ModelName".Translate() + ":");
             independentModel = listing.TextEntry(independentModel);
+            
+            listing.Gap();
+
+            listing.Label("RimTalk_Settings_CustomApiFields".Translate() + ":");
+            GUI.color = Color.gray;
+            listing.Label("  " + "RimTalk_Settings_CustomApiFieldsDesc".Translate());
+            GUI.color = Color.white;
+            customApiFields = listing.TextEntry(customApiFields);
             
             listing.Gap();
             

@@ -497,6 +497,7 @@ namespace RimTalk.Memory.AI
             return null; // Indicates that the process is async
         }
 
+        // [TODO] Fix API setting hardcode(thinkingBudget,temperature...)
         private static string BuildPrompt(Pawn pawn, List<MemoryEntry> memories, string template)
         {
             var settings = RimTalkMemoryPatchMod.Settings;
@@ -602,7 +603,15 @@ namespace RimTalk.Memory.AI
                 {
                     sb.Append(",\"thinkingConfig\":{\"thinkingBudget\":0}");
                 }
-                
+
+                // User custom API fields
+                string customFields = settings?.customApiFields?.Trim();
+                if (!string.IsNullOrEmpty(customFields))
+                {
+                    sb.Append(",");
+                    sb.Append(customFields);
+                }
+
                 sb.Append("}");
                 sb.Append("}");
                 
@@ -661,7 +670,14 @@ namespace RimTalk.Memory.AI
                 {
                     sb.Append(",\"enable_prompt_cache\":true");
                 }
-                
+
+                string customFields = settings?.customApiFields?.Trim();
+                if (!string.IsNullOrEmpty(customFields))
+                {
+                    sb.Append(",");
+                    sb.Append(customFields);
+                }
+
                 sb.Append("}");
                 
                 return sb.ToString();
