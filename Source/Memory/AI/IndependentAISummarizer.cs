@@ -649,6 +649,9 @@ namespace RimTalk.Memory.AI
                 // ? OpenAI/DeepSeek/Player2/Custom - 统一使用OpenAI兼容格式
                 
                 // 固定的系统指令（可缓存）
+                // [TODO] I strongly recommend remove hardcode system prompt
+                // 建议移除这个地方硬编码的系统提示词以提升跨语言兼容性
+                // 默认 user prompt 已经涵盖了指令部分
                 string systemPrompt = "你是一个RimWorld殖民地的记忆总结助手。\n" +
                                     "请用极简的语言总结记忆内容。\n" +
                                     "只输出总结文字，不要其他格式。";
