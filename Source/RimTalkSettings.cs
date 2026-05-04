@@ -79,7 +79,8 @@ namespace RimTalk.MemoryPatch
         public string independentModel = "gpt-3.5-turbo";
         public string independentProvider = "OpenAI";
         public bool enablePromptCaching = true;
-        public string customApiFields = "";  // Custom API fields written by user
+        public string customApiFields = "";  // Custom API fields appended to ExpandMemory requests
+        public string originalCustomApiFields = "";  // Custom API fields appended to RimTalk requests
 
         // AI 总结提示词配置
         public string dailySummaryPrompt = "";  // 空字符串表示使用默认
@@ -214,6 +215,7 @@ namespace RimTalk.MemoryPatch
             Scribe_Values.Look(ref deepArchivePrompt, "ai_deepArchivePrompt", "");
             Scribe_Values.Look(ref summaryMaxTokens, "ai_summaryMaxTokens", 8000);  // ⭐ v3.4.0: 与字段默认值同步
             Scribe_Values.Look(ref customApiFields, "ai_customApiFields", "");
+            Scribe_Values.Look(ref originalCustomApiFields, "ai_originalCustomApiFields", "");
 
             Scribe_Values.Look(ref enableMemoryUI, "memoryPatch_enableMemoryUI", true);
             Scribe_Values.Look(ref enableActionMemory, "memoryPatch_enableActionMemory", true);
@@ -569,9 +571,17 @@ namespace RimTalk.MemoryPatch
             listing.Label("  " + "RimTalk_Settings_CustomApiFieldsDesc".Translate());
             GUI.color = Color.white;
             customApiFields = listing.TextEntry(customApiFields);
-            
+
             listing.Gap();
-            
+
+            listing.Label("RimTalk_Settings_OriginalCustomApiFields".Translate() + ":");
+            GUI.color = Color.gray;
+            listing.Label("  " + "RimTalk_Settings_OriginalCustomApiFieldsDesc".Translate());
+            GUI.color = Color.white;
+            originalCustomApiFields = listing.TextEntry(originalCustomApiFields);
+
+            listing.Gap();
+
             // ⭐ 修改：Prompt Caching 选项 - 仅DeepSeek和OpenAI可切换
             bool canToggleCaching = (independentProvider == "OpenAI" || independentProvider == "DeepSeek");
             

@@ -296,8 +296,10 @@
   <RimTalk_Settings_APIKey>API Key</RimTalk_Settings_APIKey>
   <RimTalk_Settings_APIURL>API URL</RimTalk_Settings_APIURL>
   <RimTalk_Settings_ModelName>Model</RimTalk_Settings_ModelName>
-  <RimTalk_Settings_CustomApiFields>Custom API Fields</RimTalk_Settings_CustomApiFields>
-  <RimTalk_Settings_CustomApiFieldsDesc>JSON fragment appended to API request body. Example: "reasoning_effort": "high". Leave empty to disable.</RimTalk_Settings_CustomApiFieldsDesc>
+  <RimTalk_Settings_CustomApiFields>Custom API Fields (ExpandMemory)</RimTalk_Settings_CustomApiFields>
+  <RimTalk_Settings_CustomApiFieldsDesc>JSON fragment appended to ExpandMemory's own AI request body. Example: "reasoning_effort": "high". Leave empty to disable.</RimTalk_Settings_CustomApiFieldsDesc>
+  <RimTalk_Settings_OriginalCustomApiFields>Custom API Fields (RimTalk)</RimTalk_Settings_OriginalCustomApiFields>
+  <RimTalk_Settings_OriginalCustomApiFieldsDesc>JSON fragment appended to RimTalk's request body. Takes effect on RimTalk AI calls.</RimTalk_Settings_OriginalCustomApiFieldsDesc>
   <RimTalk_Settings_EnablePromptCaching>Enable Prompt Caching</RimTalk_Settings_EnablePromptCaching>
   <RimTalk_Settings_EnablePromptCachingUnavailable>Enable Prompt Caching (Unavailable)</RimTalk_Settings_EnablePromptCachingUnavailable>
   <RimTalk_Settings_OpenAICachingSupport>✓ OpenAI Supports Prompt Caching (Beta)</RimTalk_Settings_OpenAICachingSupport>
