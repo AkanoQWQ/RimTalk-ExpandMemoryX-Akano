@@ -652,65 +652,115 @@ namespace RimTalk.MemoryPatch
             GUI.color = Color.white;
         }
         
-        /// <summary>
-        /// 验证 AI 配置
-        /// </summary>
+        // Validate AI config by sending a minimal test request
         private void ValidateAIConfig()
         {
-            if (useRimTalkAIConfig)
-            {
-                Messages.Message("RimTalk_Settings_UsingRimTalkConfigNoValidation".Translate(), MessageTypeDefOf.NeutralEvent);
-                return;
-            }
-            
-            if (string.IsNullOrEmpty(independentApiKey))
+            // Reload config before validation
+            Memory.AI.IndependentAISummarizer.ForceReinitialize();
+            var (testKey, testUrl, testModel, testProvider) = Memory.AI.IndependentAISummarizer.GetCurrentConfig();
+
+            if (string.IsNullOrEmpty(testKey))
             {
                 Messages.Message("RimTalk_Settings_PleaseEnterAPIKey".Translate(), MessageTypeDefOf.RejectInput);
                 return;
             }
-            
-            if (string.IsNullOrEmpty(independentApiUrl))
+
+            if (string.IsNullOrEmpty(testUrl))
             {
                 Messages.Message("RimTalk_Settings_PleaseEnterAPIURL".Translate(), MessageTypeDefOf.RejectInput);
                 return;
             }
-            
-            if (string.IsNullOrEmpty(independentModel))
+
+            if (string.IsNullOrEmpty(testModel))
             {
                 Messages.Message("RimTalk_Settings_PleaseEnterModel".Translate(), MessageTypeDefOf.RejectInput);
                 return;
             }
-            
+
             Messages.Message("RimTalk_Settings_Validating".Translate(), MessageTypeDefOf.NeutralEvent);
-            
-            // 强制重新初始化 AI Summarizer
+
             System.Threading.Tasks.Task.Run(() =>
             {
                 try
                 {
-                    Memory.AI.IndependentAISummarizer.ForceReinitialize();
-                    
-                    if (Memory.AI.IndependentAISummarizer.IsAvailable())
+                    string escapedModel = Memory.AI.IndependentAISummarizer.EscapeJsonString(testModel);
+                    string testJson = "{\"model\":\"" + escapedModel
+                        + "\",\"messages\":[{\"role\":\"user\",\"content\":\"hi\"}],\"max_tokens\":1}";
+
+                    var request = (System.Net.HttpWebRequest)System.Net.WebRequest.Create(testUrl);
+                    request.Method = "POST";
+                    request.ContentType = "application/json";
+                    request.Timeout = 15000;
+
+                    // Google uses key in URL, others use Bearer header
+                    if (testProvider == "Google")
                     {
+                        // Skip real validation for Google (different API format)
+                        bool available = Memory.AI.IndependentAISummarizer.IsAvailable();
                         LongEventHandler.ExecuteWhenFinished(() =>
                         {
-                            Messages.Message("RimTalk_Settings_ValidationSuccess".Translate(independentProvider), MessageTypeDefOf.PositiveEvent);
+                            Messages.Message(available
+                                ? "RimTalk_Settings_ValidationSuccess".Translate(testProvider)
+                                : "RimTalk_Settings_ValidationFailed".Translate(),
+                                available ? MessageTypeDefOf.PositiveEvent : MessageTypeDefOf.RejectInput);
                         });
+                        return;
+                    }
+
+                    request.Headers["Authorization"] = "Bearer " + testKey;
+
+                    byte[] data = System.Text.Encoding.UTF8.GetBytes(testJson);
+                    using (var stream = request.GetRequestStream())
+                    {
+                        stream.Write(data, 0, data.Length);
+                    }
+
+                    using (var response = (System.Net.HttpWebResponse)request.GetResponse())
+                    {
+                        if ((int)response.StatusCode >= 200 && (int)response.StatusCode < 300)
+                        {
+                            LongEventHandler.ExecuteWhenFinished(() =>
+                            {
+                                Messages.Message("RimTalk_Settings_ValidationSuccess".Translate(testProvider),
+                                    MessageTypeDefOf.PositiveEvent);
+                            });
+                        }
+                    }
+                }
+                catch (System.Net.WebException ex)
+                {
+                    string detail;
+                    var httpResponse = ex.Response as System.Net.HttpWebResponse;
+                    if (httpResponse != null)
+                    {
+                        int code = (int)httpResponse.StatusCode;
+                        if (code == 401 || code == 403)
+                            detail = "API key invalid or unauthorized (HTTP " + code + ")";
+                        else if (code == 404)
+                            detail = "API endpoint not found (HTTP 404)";
+                        else
+                            detail = "Server error (HTTP " + code + ")";
+                        httpResponse.Close();
                     }
                     else
                     {
-                        LongEventHandler.ExecuteWhenFinished(() =>
-                        {
-                            Messages.Message("RimTalk_Settings_ValidationFailed".Translate(), MessageTypeDefOf.RejectInput);
-                        });
+                        detail = ex.Message;
                     }
+
+                    Log.Error("AI Config validation failed: " + detail);
+                    LongEventHandler.ExecuteWhenFinished(() =>
+                    {
+                        Messages.Message("RimTalk_Settings_ValidationError".Translate(detail),
+                            MessageTypeDefOf.RejectInput);
+                    });
                 }
                 catch (System.Exception ex)
                 {
-                    Log.Error($"AI Config validation failed: {ex.Message}");
+                    Log.Error("AI Config validation failed: " + ex.Message);
                     LongEventHandler.ExecuteWhenFinished(() =>
                     {
-                        Messages.Message("RimTalk_Settings_ValidationError".Translate(ex.Message), MessageTypeDefOf.RejectInput);
+                        Messages.Message("RimTalk_Settings_ValidationError".Translate(ex.Message),
+                            MessageTypeDefOf.RejectInput);
                     });
                 }
             });

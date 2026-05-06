@@ -315,8 +315,8 @@
   <RimTalk_Settings_GoogleNoCaching>✗ Google Gemini 不支持 Prompt Caching</RimTalk_Settings_GoogleNoCaching>
   <RimTalk_Settings_CustomNoCaching>✗ 自定义API 不支持 Prompt Caching</RimTalk_Settings_CustomNoCaching>
   <RimTalk_Settings_CustomCachingDepends>取决于您的 API 实现</RimTalk_Settings_CustomCachingDepends>
-  <RimTalk_Settings_ValidateConfig>✓ 验证配置</RimTalk_Settings_ValidateConfig>
-  <RimTalk_Settings_ValidateConfigTip>提示: 验证将测试 API 连接和配置</RimTalk_Settings_ValidateConfigTip>
+  <RimTalk_Settings_ValidateConfig>✓ 重新加载并验证配置</RimTalk_Settings_ValidateConfig>
+  <RimTalk_Settings_ValidateConfigTip>提示: 发送最小API请求以验证连通性和凭证（会消耗极少token，暂不支持谷歌）</RimTalk_Settings_ValidateConfigTip>
   <RimTalk_Settings_UsingRimTalkConfigNoValidation>当前使用 RimTalk 配置，无需验证独立配置</RimTalk_Settings_UsingRimTalkConfigNoValidation>
   <RimTalk_Settings_PleaseEnterAPIKey>请先输入 API Key</RimTalk_Settings_PleaseEnterAPIKey>
   <RimTalk_Settings_PleaseEnterAPIURL>请先输入 API URL</RimTalk_Settings_PleaseEnterAPIURL>

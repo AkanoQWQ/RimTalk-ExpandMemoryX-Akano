@@ -311,8 +311,8 @@
   <RimTalk_Settings_GoogleNoCaching>✗ Google Gemini does not support Prompt Caching</RimTalk_Settings_GoogleNoCaching>
   <RimTalk_Settings_CustomNoCaching>✗ Custom API does not support Prompt Caching</RimTalk_Settings_CustomNoCaching>
   <RimTalk_Settings_CustomCachingDepends>Depends on your API implementation</RimTalk_Settings_CustomCachingDepends>
-  <RimTalk_Settings_ValidateConfig>✓ Validate Configuration</RimTalk_Settings_ValidateConfig>
-  <RimTalk_Settings_ValidateConfigTip>Tip: Validation will test the API connection and configuration</RimTalk_Settings_ValidateConfigTip>
+  <RimTalk_Settings_ValidateConfig>✓ Reload & Validate Config</RimTalk_Settings_ValidateConfig>
+  <RimTalk_Settings_ValidateConfigTip>Tip: Sends a minimal API request to verify connectivity and credentials (consumes minimal tokens; Google not supported)</RimTalk_Settings_ValidateConfigTip>
   <RimTalk_Settings_UsingRimTalkConfigNoValidation>Currently using RimTalk config, no validation needed for independent config</RimTalk_Settings_UsingRimTalkConfigNoValidation>
   <RimTalk_Settings_PleaseEnterAPIKey>Please enter API Key first</RimTalk_Settings_PleaseEnterAPIKey>
   <RimTalk_Settings_PleaseEnterAPIURL>Please enter API URL first</RimTalk_Settings_PleaseEnterAPIURL>

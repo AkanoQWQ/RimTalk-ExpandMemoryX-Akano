@@ -95,7 +95,13 @@ namespace RimTalk.Memory.AI
             isInitialized = false;
             Initialize();
         }
-        
+
+        public static (string apiKey, string apiUrl, string model, string provider) GetCurrentConfig()
+        {
+            if (!isInitialized) Initialize();
+            return (apiKey, apiUrl, model, provider);
+        }
+
         /// <summary>
         /// ? v3.3.3: 清除所有API配置和缓存
         /// </summary>
@@ -718,7 +724,7 @@ namespace RimTalk.Memory.AI
         /// ? v3.3.2.34: 安全的 JSON 字符串转义
         /// 处理所有特殊字符：引号、换行、反斜杠等
         /// </summary>
-        private static string EscapeJsonString(string text)
+        internal static string EscapeJsonString(string text)
         {
             if (string.IsNullOrEmpty(text))
                 return "";
