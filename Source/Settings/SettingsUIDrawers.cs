@@ -37,7 +37,7 @@ namespace RimTalk.MemoryPatch
                 new Color(0.5f, 1f, 0.5f));
             
             DrawProviderButton(new Rect(providerButtonRect1.x + buttonWidth + 10f, providerButtonRect1.y, buttonWidth, 30f),
-                "DeepSeek", settings, "DeepSeek", "deepseek-chat", "https://api.deepseek.com/v1/chat/completions",
+                "DeepSeek", settings, "DeepSeek", "deepseek-v4-flash", "https://api.deepseek.com/v1/chat/completions",
                 new Color(0.5f, 0.7f, 1f));
             
             DrawProviderButton(new Rect(providerButtonRect1.x + 2 * (buttonWidth + 10f), providerButtonRect1.y, buttonWidth, 30f),
