@@ -358,7 +358,7 @@
   <RimTalk_Settings_OpenAIDesc1>✦ OpenAI GPT 系列模型，稳定可靠</RimTalk_Settings_OpenAIDesc1>
   <RimTalk_Settings_OpenAIDesc2>推荐模型: gpt-3.5-turbo, gpt-4</RimTalk_Settings_OpenAIDesc2>
   <RimTalk_Settings_DeepSeekDesc1>✦ DeepSeek 中文优化模型，性价比高</RimTalk_Settings_DeepSeekDesc1>
-  <RimTalk_Settings_DeepSeekDesc2>推荐模型: deepseek-chat, deepseek-coder</RimTalk_Settings_DeepSeekDesc2>
+  <RimTalk_Settings_DeepSeekDesc2>推荐模型: deepseek-v4-flash（性价比高，极其建议关闭推理）, deepseek-v4-pro（贵，提升小）</RimTalk_Settings_DeepSeekDesc2>
   <RimTalk_Settings_Player2Desc1>✦ Player2 游戏优化 AI，支持本地客户端</RimTalk_Settings_Player2Desc1>
   <RimTalk_Settings_Player2Desc2>推荐模型: gpt-4o, gpt-4-turbo</RimTalk_Settings_Player2Desc2>
   <RimTalk_Settings_GoogleDesc1>✦ Google Gemini 系列，多模态能力强</RimTalk_Settings_GoogleDesc1>

@@ -360,7 +360,7 @@
   <RimTalk_Settings_OpenAIDesc1>✦ OpenAI GPT series models, stable and reliable</RimTalk_Settings_OpenAIDesc1>
   <RimTalk_Settings_OpenAIDesc2>Recommended models: gpt-3.5-turbo, gpt-4</RimTalk_Settings_OpenAIDesc2>
   <RimTalk_Settings_DeepSeekDesc1>✦ DeepSeek Chinese-optimized models, cost-effective</RimTalk_Settings_DeepSeekDesc1>
-  <RimTalk_Settings_DeepSeekDesc2>Recommended models: deepseek-chat, deepseek-coder</RimTalk_Settings_DeepSeekDesc2>
+  <RimTalk_Settings_DeepSeekDesc2>Recommended models: deepseek-v4-flash (cost-effective, strongly suggest disabling reasoning), deepseek-v4-pro (expensive, marginal improvement)</RimTalk_Settings_DeepSeekDesc2>
   <RimTalk_Settings_Player2Desc1>✦ Player2 game-optimized AI, supports local client</RimTalk_Settings_Player2Desc1>
   <RimTalk_Settings_Player2Desc2>Recommended models: gpt-4o, gpt-4-turbo</RimTalk_Settings_Player2Desc2>
   <RimTalk_Settings_GoogleDesc1>✦ Google Gemini series, strong multi-modal capabilities</RimTalk_Settings_GoogleDesc1>
