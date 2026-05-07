@@ -91,11 +91,13 @@ namespace RimTalk.Memory
                 return;
             }
 
-            // 如果对话为玩家发起且启用相关配置项，则提前修饰数据
-            if (isPlayerInitiate && (RimTalkMemoryPatchMod.Settings?.IsPlayerDialogueInject ?? true))
+            // Inject cached player dialogue if present
+            string cachedPlayerText = Instance._playerDialogue;
+            if (!string.IsNullOrEmpty(cachedPlayerText) && (RimTalkMemoryPatchMod.Settings?.IsPlayerDialogueInject ?? true))
             {
                 pawns?.Add(Instance._playerPawn);
-                content = $"{Instance._playerDialogue}\n{content}";
+                content = $"{cachedPlayerText}\n{content}";
+                Instance._playerDialogue = null; // Consume the cache
                 Log.Message("[RoundMemory] 成功插入玩家文本");
             }
 

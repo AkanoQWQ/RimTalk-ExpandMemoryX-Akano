@@ -55,6 +55,7 @@ namespace RimTalk.Memory.Patches
                 .Select(n => Cache.GetByName(n)?.Pawn)
                 .Where(p => p is not null)
                 .ToHashSet();
+            // [TODO] clear isPlayerInitiate variable
             bool isPlayerInitiate = responses.FirstOrDefault(r => r is not null)?.TalkType == TalkType.User;
 
             // 将数据传给RoundMemoryManager
