@@ -61,11 +61,13 @@
 		<Compile Remove="**\*.backup.cs" />
 	</ItemGroup>
 
-	<!-- 编译后自动部署 -->
+	<!-- 编译后自动部署,但我使用了软连接 -->
+	<!--
 	<Target Name="DeployToModsFolder" AfterTargets="Build" Condition=" '$(BuildingWithScript)' != 'true' AND '$(RimWorldDir)' != '' ">
 		<CallTarget Targets="WinDeploy" Condition=" '$(OS)' == 'Windows_NT' " />
 		<CallTarget Targets="MacDeploy" Condition=" '$(OS)' != 'Windows_NT' " />
 	</Target>
+	-->
 
 	<!-- Deploy to RimWorld client (Windows) -->
 	<Target Name="WinDeploy">
