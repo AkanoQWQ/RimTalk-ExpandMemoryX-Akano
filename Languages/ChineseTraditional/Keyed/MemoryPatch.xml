@@ -1,114 +1,546 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <LanguageData>
-    <!-- RimTalk Memory Patch - ���w���ķ��g -->
-    
-    <!-- Filter Buttons -->
-    <RimTalk_Filter_All>ȫ��</RimTalk_Filter_All>
-    <RimTalk_Filter_Conversation>��Ԓ</RimTalk_Filter_Conversation>
-    <RimTalk_Filter_Interaction>����</RimTalk_Filter_Interaction>
-    <RimTalk_Filter_Action>�Є�</RimTalk_Filter_Action>
-    <RimTalk_Filter_Observation>�^��</RimTalk_Filter_Observation>
-    <RimTalk_Filter_Event>�¼�</RimTalk_Filter_Event>
-    <RimTalk_Filter_Emotion>��w</RimTalk_Filter_Emotion>
-    <RimTalk_Filter_Relationship>�P�S</RimTalk_Filter_Relationship>
-    
-    <!-- Memory Stats -->
-    <RimTalk_MemoryStats>����ӛ��: {0}/{1} | �L��ӛ��: {2}/{3}</RimTalk_MemoryStats>
-    <RimTalk_MemoryTitle>{0} ��ӛ��</RimTalk_MemoryTitle>
-    
-    <!-- Four Layer Memory Stats -->
-    <RimTalk_FourLayerMemoryStats>ABM: {0}/{1} | SCM: {2}/{3} | ELS: {4}/{5} | CLPA: {6}</RimTalk_FourLayerMemoryStats>
-    <RimTalk_ActiveBufferMemory>������ӛ��</RimTalk_ActiveBufferMemory>
-    <RimTalk_SituationalMemory>����ӛ��</RimTalk_SituationalMemory>
-    <RimTalk_EventLogSummary>����ӛ��</RimTalk_EventLogSummary>
-    <RimTalk_ArchiveMemory>�L��ӛ��</RimTalk_ArchiveMemory>
-    
-    <!-- Colonist Selection -->
-    <RimTalk_SelectColonist>�x��ֳ����</RimTalk_SelectColonist>
-    <RimTalk_ChooseColonist>�x��...</RimTalk_ChooseColonist>
-    <RimTalk_NoColonists>�]��ֳ����</RimTalk_NoColonists>
-    <RimTalk_NoMemoryComponent>ԓֳ���ߛ]��ӛ���M��</RimTalk_NoMemoryComponent>
-    
-    <!-- Time Display -->
-    <RimTalk_JustNow>����</RimTalk_JustNow>
-    <RimTalk_MinutesAgo>{0} ���ǰ</RimTalk_MinutesAgo>
-    <RimTalk_HoursAgo>{0} С�rǰ</RimTalk_HoursAgo>
-    <RimTalk_DaysAgo>{0} ��ǰ</RimTalk_DaysAgo>
-    
-    <!-- Memory Types -->
-    <RimTalk_MemoryType_Conversation>��Ԓ</RimTalk_MemoryType_Conversation>
-    <RimTalk_MemoryType_Interaction>����</RimTalk_MemoryType_Interaction>
-    <RimTalk_MemoryType_Action>�Є�</RimTalk_MemoryType_Action>
-    <RimTalk_MemoryType_Observation>�^��</RimTalk_MemoryType_Observation>
-    <RimTalk_MemoryType_Event>�¼�</RimTalk_MemoryType_Event>
-    <RimTalk_MemoryType_Emotion>��w</RimTalk_MemoryType_Emotion>
-    <RimTalk_MemoryType_Relationship>�P�S</RimTalk_MemoryType_Relationship>
-    
-    <!-- Memory Tab -->
-    <RimTalk_TabMemory>ӛ��</RimTalk_TabMemory>
-    <RimTalk_TabMemoryDesc>�鿴ԓֳ���ߵ�ӛ��</RimTalk_TabMemoryDesc>
-    
-    <!-- Settings -->
-    <RimTalk_MemoryPatchSettings>ӛ��ϵ�y�O��</RimTalk_MemoryPatchSettings>
-    <RimTalk_MemoryPatchDescription>�� RimTalk �ṩӛ��ϵ�y֧Ԯ</RimTalk_MemoryPatchDescription>
-    <RimTalk_OriginalRimTalkSettings>��Ԓ����Ո�� RimTalk ԭ���O��������</RimTalk_OriginalRimTalkSettings>
-    
-    <!-- Memory Settings -->
-    <RimTalk_MaxShortTermMemories>����ӛ������</RimTalk_MaxShortTermMemories>
-    <RimTalk_MaxLongTermMemories>�L��ӛ������</RimTalk_MaxLongTermMemories>
-    <RimTalk_MemoryDecayRate>ӛ��˥�p����</RimTalk_MemoryDecayRate>
-    <RimTalk_EnableMemoryUI>����ӛ������</RimTalk_EnableMemoryUI>
-    
-    <!-- Four Layer Memory Settings -->
-    <RimTalk_MaxActiveMemories>������ӛ������</RimTalk_MaxActiveMemories>
-    <RimTalk_MaxSituationalMemories>����ӛ������</RimTalk_MaxSituationalMemories>
-    <RimTalk_MaxEventLogMemories>����ӛ������</RimTalk_MaxEventLogMemories>
-    <RimTalk_EnableDailySummarization>����ÿ�տ��Y</RimTalk_EnableDailySummarization>
-    <RimTalk_SummarizationHour>���Y�|�l�r�g���[��С�r��</RimTalk_SummarizationHour>
-    
-    <!-- Memory Type Toggles -->
-    <RimTalk_MemoryTypeToggles>ӛ������O��</RimTalk_MemoryTypeToggles>
-    <RimTalk_EnableInteractionMemory>���û���ӛ��</RimTalk_EnableInteractionMemory>
-    <RimTalk_EnableInteractionMemoryDesc>ӛ�ֳ����֮�g���罻����</RimTalk_EnableInteractionMemoryDesc>
-    <RimTalk_EnableActionMemory>�����Є�ӛ��</RimTalk_EnableActionMemory>
-    <RimTalk_EnableActionMemoryDesc>ӛ䛹��������Y�Ȼ��</RimTalk_EnableActionMemoryDesc>
-    <RimTalk_EnableConversationMemory>���Ì�Ԓӛ��</RimTalk_EnableConversationMemory>
-    <RimTalk_EnableConversationMemoryDesc>ӛ� RimTalk ���ɵČ�Ԓ����Ҫ RimTalk ���ɣ�</RimTalk_EnableConversationMemoryDesc>
-    <RimTalk_EnableObservationMemory>�����^��ӛ��</RimTalk_EnableObservationMemory>
-    <RimTalk_EnableObservationMemoryDesc>ӛ��^�쵽���¼�</RimTalk_EnableObservationMemoryDesc>
-    <RimTalk_EnableEventMemory>�����¼�ӛ��</RimTalk_EnableEventMemory>
-    <RimTalk_EnableEventMemoryDesc>ӛ���Ҫ�¼����u��������ȣ�</RimTalk_EnableEventMemoryDesc>
-    <RimTalk_EnableEmotionMemory>������wӛ��</RimTalk_EnableEmotionMemory>
-    <RimTalk_EnableEmotionMemoryDesc>ӛ���w׃��</RimTalk_EnableEmotionMemoryDesc>
-    <RimTalk_EnableRelationshipMemory>�����P�Sӛ��</RimTalk_EnableRelationshipMemory>
-    <RimTalk_EnableRelationshipMemoryDesc>ӛ��P�S׃�����ِۡ��nͻ�ȣ�</RimTalk_EnableRelationshipMemoryDesc>
-    
-    <!-- Memory Edit Dialog -->
-    <RimTalk_EditMemory>��݋ӛ��</RimTalk_EditMemory>
-    <RimTalk_DeleteMemory>�h��ӛ��</RimTalk_DeleteMemory>
-    <RimTalk_PinMemory>�̶�ӛ��</RimTalk_PinMemory>
-    <RimTalk_UnpinMemory>ȡ���̶�</RimTalk_UnpinMemory>
-    <RimTalk_MemoryContent>����</RimTalk_MemoryContent>
-    <RimTalk_MemoryNotes>���]</RimTalk_MemoryNotes>
-    <RimTalk_MemoryTags>�˻`</RimTalk_MemoryTags>
-    <RimTalk_AddTag>��Ә˻`</RimTalk_AddTag>
-    <RimTalk_RemoveTag>�Ƴ��˻`</RimTalk_RemoveTag>
-    <RimTalk_CustomTag>�Զ��x�˻`</RimTalk_CustomTag>
-    <RimTalk_Save>����</RimTalk_Save>
-    <RimTalk_Cancel>ȡ��</RimTalk_Cancel>
-    <RimTalk_ConfirmDelete>�_�J�h����ӛ����</RimTalk_ConfirmDelete>
-    <RimTalk_MemoryUpdated>ӛ���Ѹ���</RimTalk_MemoryUpdated>
-    <RimTalk_MemoryDeleted>ӛ���фh��</RimTalk_MemoryDeleted>
-    
-    <!-- Memory Actions -->
-    <RimTalk_ClearAll>���ȫ��</RimTalk_ClearAll>
-    <RimTalk_ClearShortTerm>��ն���</RimTalk_ClearShortTerm>
-    <RimTalk_ClearLongTerm>����L��</RimTalk_ClearLongTerm>
-    <RimTalk_ConfirmClearAll>�_�J�������ӛ����</RimTalk_ConfirmClearAll>
-    <RimTalk_ConfirmClearShortTerm>�_�J��ն���ӛ����</RimTalk_ConfirmClearShortTerm>
-    <RimTalk_ConfirmClearLongTerm>�_�J����L��ӛ����</RimTalk_ConfirmClearLongTerm>
-    
-    <!-- Other -->
-    <RimTalk_With>�c</RimTalk_With>
-    <RimTalk_ObservationPlaceholder>���^��ӛ����λ����δ���F��</RimTalk_ObservationPlaceholder>
+  <!-- ==================== 通用UI ==================== -->
+  <RimTalk_Memory_Title>{0}的記憶</RimTalk_Memory_Title>
+  <RimTalk_SelectColonist>選擇殖民者</RimTalk_SelectColonist>
+  <RimTalk_ChooseColonist>選擇...</RimTalk_ChooseColonist>
+  <RimTalk_NoColonists>沒有可用的殖民者</RimTalk_NoColonists>
+  <RimTalk_NoMemoryComponent>選中的角色沒有記憶組件</RimTalk_NoMemoryComponent>
+  <RimTalk_ShowAllHumanlikes>顯示所有人</RimTalk_ShowAllHumanlikes>
+
+  <!-- ITab Memory -->
+  <RimTalk_Memory_NoMemories>沒有可顯示的記憶</RimTalk_Memory_NoMemories>
+  
+  <!-- ==================== Mind Stream UI 標籤 ==================== -->
+  <RimTalk_MindStream_SelectColonist>選擇一個殖民者查看記憶</RimTalk_MindStream_SelectColonist>
+  <RimTalk_MindStream_NoMemoryComp>選中的角色沒有記憶組件</RimTalk_MindStream_NoMemoryComp>
+  <RimTalk_MindStream_Preview>預覽</RimTalk_MindStream_Preview>
+  <RimTalk_MindStream_Knowledge>常識</RimTalk_MindStream_Knowledge>
+  <RimTalk_MindStream_OperationGuide>操作指南</RimTalk_MindStream_OperationGuide>
+  <RimTalk_MindStream_NoColonists>沒有殖民者</RimTalk_MindStream_NoColonists>
+  
+  <!-- 控制面板 -->
+  <RimTalk_MindStream_MemoryFilters>記憶過濾器</RimTalk_MindStream_MemoryFilters>
+  <RimTalk_MindStream_Layers>層級</RimTalk_MindStream_Layers>
+  <RimTalk_MindStream_ABM>ABM (超短期)</RimTalk_MindStream_ABM>
+  <RimTalk_MindStream_SCM>SCM (短期)</RimTalk_MindStream_SCM>
+  <RimTalk_MindStream_ELS>ELS (事件)</RimTalk_MindStream_ELS>
+  <RimTalk_MindStream_CLPA>CLPA (檔案)</RimTalk_MindStream_CLPA>
+
+  <RimTalk_MindStream_Type>類型</RimTalk_MindStream_Type>
+  <RimTalk_MindStream_All>全部</RimTalk_MindStream_All>
+  <RimTalk_MindStream_Conversation>對話</RimTalk_MindStream_Conversation>
+  <RimTalk_MindStream_Action>行動</RimTalk_MindStream_Action>
+
+  <RimTalk_MindStream_Statistics>統計</RimTalk_MindStream_Statistics>
+  <RimTalk_MindStream_Selected>已選: {0}</RimTalk_MindStream_Selected>
+  <RimTalk_MindStream_TotalMemories>共 {0} 條記憶</RimTalk_MindStream_TotalMemories>
+
+  <RimTalk_MindStream_BatchActions>批量操作</RimTalk_MindStream_BatchActions>
+  <RimTalk_MindStream_SummarizeN>總結 ({0})</RimTalk_MindStream_SummarizeN>
+  <RimTalk_MindStream_SummarizeSelected>總結選中</RimTalk_MindStream_SummarizeSelected>
+  <RimTalk_MindStream_ArchiveN>歸檔 ({0})</RimTalk_MindStream_ArchiveN>
+  <RimTalk_MindStream_ArchiveSelected>歸檔選中</RimTalk_MindStream_ArchiveSelected>
+  <RimTalk_MindStream_DeleteN>刪除 ({0})</RimTalk_MindStream_DeleteN>
+  <RimTalk_MindStream_DeleteSelected>刪除選中</RimTalk_MindStream_DeleteSelected>
+
+  <RimTalk_MindStream_GlobalActions>全局操作</RimTalk_MindStream_GlobalActions>
+  <RimTalk_MindStream_SummarizeAll>總結全部</RimTalk_MindStream_SummarizeAll>
+  <RimTalk_MindStream_ArchiveAll>歸檔全部</RimTalk_MindStream_ArchiveAll>
+  
+  <!-- ⭐ 記憶導出導入 -->
+  <RimTalk_Memory_Export>導出</RimTalk_Memory_Export>
+  <RimTalk_Memory_Import>導入</RimTalk_Memory_Import>
+  <RimTalk_Memory_ExportNoPawn>請先選擇一個殖民者</RimTalk_Memory_ExportNoPawn>
+  <RimTalk_Memory_ExportSuccess>已導出 {0} 條記憶到 {1}</RimTalk_Memory_ExportSuccess>
+  <RimTalk_Memory_ExportSuccessTitle>導出成功</RimTalk_Memory_ExportSuccessTitle>
+  <RimTalk_Memory_OpenExportFolder>是否打開導出文件夾？</RimTalk_Memory_OpenExportFolder>
+  <RimTalk_Memory_OpenFolder>📁 打開文件夾</RimTalk_Memory_OpenFolder>
+  <RimTalk_Memory_ExportFailed>導出失敗: {0}</RimTalk_Memory_ExportFailed>
+  <RimTalk_Memory_ImportNoPawn>請先選擇一個殖民者</RimTalk_Memory_ImportNoPawn>
+  <RimTalk_Memory_ImportNoFolder>導出文件夾不存在</RimTalk_Memory_ImportNoFolder>
+  <RimTalk_Memory_ImportNoFiles>沒有找到導出文件</RimTalk_Memory_ImportNoFiles>
+  <RimTalk_Memory_ImportEmpty>文件中沒有記憶數據</RimTalk_Memory_ImportEmpty>
+  <RimTalk_Memory_ImportConfirm>從 {0} 導入 {1} 條記憶到 {2}？\n超出容量的記憶將被跳過。</RimTalk_Memory_ImportConfirm>
+  <RimTalk_Memory_ImportSuccess>已成功導入 {0}/{1} 條記憶</RimTalk_Memory_ImportSuccess>
+  <RimTalk_Memory_ImportFailed>導入失敗: {0}</RimTalk_Memory_ImportFailed>
+
+  <!-- 時間線 -->
+  <RimTalk_MindStream_ShowingN>顯示 {0} 條記憶</RimTalk_MindStream_ShowingN>
+  <RimTalk_MindStream_Pin>固定</RimTalk_MindStream_Pin>
+  <RimTalk_MindStream_Unpin>取消固定</RimTalk_MindStream_Unpin>
+  <RimTalk_MindStream_Edit>編輯</RimTalk_MindStream_Edit>
+  <RimTalk_MindStream_With>與</RimTalk_MindStream_With>
+  <RimTalk_MindStream_ImportanceLabel>重要性: {0}</RimTalk_MindStream_ImportanceLabel>
+  <RimTalk_MindStream_ActivityLabel>活躍度: {0}</RimTalk_MindStream_ActivityLabel>
+
+  <!-- 消息 -->
+  <RimTalk_MindStream_NoSCMSelected>沒有選中SCM記憶</RimTalk_MindStream_NoSCMSelected>
+  <RimTalk_MindStream_SummarizeConfirm>將 {0} 條SCM記憶總結到ELS？</RimTalk_MindStream_SummarizeConfirm>
+  <RimTalk_MindStream_SummarizedN>已總結 {0} 條記憶</RimTalk_MindStream_SummarizedN>
+  <RimTalk_MindStream_NoELSSelected>沒有選中ELS記憶</RimTalk_MindStream_NoELSSelected>
+  <RimTalk_MindStream_ArchiveConfirm>將 {0} 條ELS記憶歸檔到CLPA？</RimTalk_MindStream_ArchiveConfirm>
+  <RimTalk_MindStream_ArchivedN>已歸檔 {0} 條記憶</RimTalk_MindStream_ArchivedN>
+  <RimTalk_MindStream_DeleteConfirm>刪除 {0} 條選中的記憶？</RimTalk_MindStream_DeleteConfirm>
+  <RimTalk_MindStream_DeletedN>已刪除 {0} 條記憶</RimTalk_MindStream_DeletedN>
+  <RimTalk_MindStream_QueuedSummarization>已為 {0} 名殖民者排隊總結</RimTalk_MindStream_QueuedSummarization>
+  <RimTalk_MindStream_NoNeedSummarization>沒有殖民者需要總結</RimTalk_MindStream_NoNeedSummarization>
+  <RimTalk_MindStream_ArchivedForN>已為 {0} 名殖民者歸檔記憶</RimTalk_MindStream_ArchivedForN>
+  <RimTalk_MindStream_MustEnterGame>必須先進入遊戲</RimTalk_MindStream_MustEnterGame>
+  <RimTalk_MindStream_CannotFindManager>找不到記憶管理器</RimTalk_MindStream_CannotFindManager>
+
+  <!-- ==================== 常識庫UI ==================== -->
+  <RimTalk_Knowledge_Categories>分類</RimTalk_Knowledge_Categories>
+  <RimTalk_Knowledge_CategoryAll>全部</RimTalk_Knowledge_CategoryAll>
+  <RimTalk_Knowledge_CategoryInstructions>規則</RimTalk_Knowledge_CategoryInstructions>
+  <RimTalk_Knowledge_CategoryLore>世界觀</RimTalk_Knowledge_CategoryLore>
+  <RimTalk_Knowledge_CategoryPawnStatus>角色狀態</RimTalk_Knowledge_CategoryPawnStatus>
+  <RimTalk_Knowledge_CategoryHistory>歷史</RimTalk_Knowledge_CategoryHistory>
+  <RimTalk_Knowledge_CategoryOther>其他</RimTalk_Knowledge_CategoryOther>
+  <RimTalk_Knowledge_CategoryUnknown>未知</RimTalk_Knowledge_CategoryUnknown>
+  
+  <RimTalk_Knowledge_AutoGenerate>自動生成</RimTalk_Knowledge_AutoGenerate>
+  <RimTalk_Knowledge_PawnStatus>角色狀態</RimTalk_Knowledge_PawnStatus>
+  <RimTalk_Knowledge_GenerateNow>立即生成</RimTalk_Knowledge_GenerateNow>
+  <RimTalk_Knowledge_EventRecord>事件記錄</RimTalk_Knowledge_EventRecord>
+  
+  <RimTalk_Knowledge_Total>總數: {0}</RimTalk_Knowledge_Total>
+  <RimTalk_Knowledge_Enabled>已啟用: {0}</RimTalk_Knowledge_Enabled>
+  <RimTalk_Knowledge_Selected>已選: {0}</RimTalk_Knowledge_Selected>
+  
+  <!-- 工具欄 -->
+  <RimTalk_Knowledge_New>新建</RimTalk_Knowledge_New>
+  <RimTalk_Knowledge_Import>導入</RimTalk_Knowledge_Import>
+  <RimTalk_Knowledge_Export>導出</RimTalk_Knowledge_Export>
+  <RimTalk_Knowledge_ExportAll>導出全部</RimTalk_Knowledge_ExportAll>
+  <RimTalk_Knowledge_ExportCount>導出 ({0})</RimTalk_Knowledge_ExportCount>
+  <RimTalk_Knowledge_Delete>刪除</RimTalk_Knowledge_Delete>
+  <RimTalk_Knowledge_DeleteCount>刪除 ({0})</RimTalk_Knowledge_DeleteCount>
+  <RimTalk_Knowledge_ClearAll>清空全部</RimTalk_Knowledge_ClearAll>
+  
+  <!-- 列表 -->
+  <RimTalk_Knowledge_Showing>顯示 {0} / {1}</RimTalk_Knowledge_Showing>
+  
+  <!-- 右側面板 -->
+  <RimTalk_Knowledge_SelectOrCreate>選擇或創建常識條目</RimTalk_Knowledge_SelectOrCreate>
+  <RimTalk_Knowledge_ItemsSelected>已選 {0} 項</RimTalk_Knowledge_ItemsSelected>
+  <RimTalk_Knowledge_EnabledCount>已啟用: {0}</RimTalk_Knowledge_EnabledCount>
+  <RimTalk_Knowledge_DisabledCount>已禁用: {0}</RimTalk_Knowledge_DisabledCount>
+  <RimTalk_Knowledge_AvgImportance>平均重要性: {0}</RimTalk_Knowledge_AvgImportance>
+  <RimTalk_Knowledge_EnableAll>全部啟用</RimTalk_Knowledge_EnableAll>
+  <RimTalk_Knowledge_DisableAll>全部禁用</RimTalk_Knowledge_DisableAll>
+  <RimTalk_Knowledge_ExportItems>導出 ({0})</RimTalk_Knowledge_ExportItems>
+  <RimTalk_Knowledge_DeleteItems>刪除 ({0})</RimTalk_Knowledge_DeleteItems>
+  
+  <RimTalk_Knowledge_Details>詳情</RimTalk_Knowledge_Details>
+  <RimTalk_Knowledge_Edit>編輯</RimTalk_Knowledge_Edit>
+  <RimTalk_Knowledge_Tag>標籤</RimTalk_Knowledge_Tag>
+  <RimTalk_Knowledge_Importance>重要性</RimTalk_Knowledge_Importance>
+  <RimTalk_Knowledge_Status>狀態</RimTalk_Knowledge_Status>
+  <RimTalk_Knowledge_StatusEnabled>已啟用</RimTalk_Knowledge_StatusEnabled>
+  <RimTalk_Knowledge_StatusDisabled>已禁用</RimTalk_Knowledge_StatusDisabled>
+  <RimTalk_Knowledge_Visibility>可見範圍</RimTalk_Knowledge_Visibility>
+  <RimTalk_Knowledge_VisibilityGlobal>全局（所有角色）</RimTalk_Knowledge_VisibilityGlobal>
+  <RimTalk_Knowledge_VisibilityExclusive>專屬於 {0}</RimTalk_Knowledge_VisibilityExclusive>
+  <RimTalk_Knowledge_VisibilityDeleted>角色 #{0}（已刪除）</RimTalk_Knowledge_VisibilityDeleted>
+  <RimTalk_Knowledge_Content>內容</RimTalk_Knowledge_Content>
+  
+  <!-- 編輯面板 -->
+  <RimTalk_Knowledge_NewEntry>新建條目</RimTalk_Knowledge_NewEntry>
+  <RimTalk_Knowledge_EditEntry>編輯條目</RimTalk_Knowledge_EditEntry>
+  <RimTalk_Knowledge_Save>保存</RimTalk_Knowledge_Save>
+  <RimTalk_Knowledge_Cancel>取消</RimTalk_Knowledge_Cancel>
+  <RimTalk_Knowledge_Global>全局</RimTalk_Knowledge_Global>
+  <RimTalk_Knowledge_GlobalAll>全局（所有角色）</RimTalk_Knowledge_GlobalAll>
+  <RimTalk_Knowledge_ExclusiveTo>專屬於 {0}</RimTalk_Knowledge_ExclusiveTo>
+  
+  <!-- 消息 -->
+  <RimTalk_Knowledge_TagContentEmpty>標籤和內容不能為空</RimTalk_Knowledge_TagContentEmpty>
+  <RimTalk_Knowledge_EntrySaved>常識條目已保存</RimTalk_Knowledge_EntrySaved>
+  <RimTalk_Knowledge_DeleteConfirm>刪除 {0} 個常識條目？</RimTalk_Knowledge_DeleteConfirm>
+  <RimTalk_Knowledge_Deleted>已刪除 {0} 個條目</RimTalk_Knowledge_Deleted>
+  <RimTalk_Knowledge_ExportedToClipboard>已將 {0} 個條目導出到剪貼板</RimTalk_Knowledge_ExportedToClipboard>
+  <RimTalk_Knowledge_ImportTitle>導入常識</RimTalk_Knowledge_ImportTitle>
+  <RimTalk_Knowledge_ImportDescription>粘貼常識條目，格式：[標籤|重要性]內容</RimTalk_Knowledge_ImportDescription>
+  <RimTalk_Knowledge_Imported>已導入 {0} 個條目</RimTalk_Knowledge_Imported>
+  <RimTalk_Knowledge_ClearConfirm>清空所有常識條目？</RimTalk_Knowledge_ClearConfirm>
+  <RimTalk_Knowledge_AllCleared>已清空所有條目</RimTalk_Knowledge_AllCleared>
+  <RimTalk_Knowledge_NoColonists>未找到殖民者</RimTalk_Knowledge_NoColonists>
+  <RimTalk_Knowledge_GeneratedPawnStatus>已為 {0} 名殖民者生成狀態</RimTalk_Knowledge_GeneratedPawnStatus>
+  <RimTalk_Knowledge_EventScanTriggered>事件掃描已觸發</RimTalk_Knowledge_EventScanTriggered>
+  <RimTalk_Knowledge_GenerationFailed>生成失敗: {0}</RimTalk_Knowledge_GenerationFailed>
+  
+  <!-- 舊翻譯（保持兼容性） -->
+  <RimTalk_MemoryTitle>{0}的記憶</RimTalk_MemoryTitle>
+  <RimTalk_Filter_All>全部</RimTalk_Filter_All>
+  <RimTalk_Filter_Conversation>對話</RimTalk_Filter_Conversation>
+  <RimTalk_Filter_Action>行動</RimTalk_Filter_Action>
+  
+  <RimTalk_UI_Preview>預覽</RimTalk_UI_Preview>
+  <RimTalk_UI_Knowledge>常識</RimTalk_UI_Knowledge>
+  <RimTalk_UI_ImmediateSummarize>立即總結</RimTalk_UI_ImmediateSummarize>
+  <RimTalk_UI_ImmediateSummarizeNoMemory>總結（無SCM）</RimTalk_UI_ImmediateSummarizeNoMemory>
+  <RimTalk_UI_MemorySummarized>已為 {0} 總結記憶</RimTalk_UI_MemorySummarized>
+  <RimTalk_UI_SummarizeAll>總結全部</RimTalk_UI_SummarizeAll>
+  <RimTalk_UI_MemoriesSummarizedCount>已為 {0} 名殖民者排隊總結</RimTalk_UI_MemoriesSummarizedCount>
+  <RimTalk_UI_NoColonistsNeedSummarize>沒有殖民者需要總結</RimTalk_UI_NoColonistsNeedSummarize>
+  <RimTalk_UI_ImmediateArchive>立即歸檔</RimTalk_UI_ImmediateArchive>
+  <RimTalk_UI_ImmediateArchiveNoMemory>歸檔（無ELS）</RimTalk_UI_ImmediateArchiveNoMemory>
+  <RimTalk_UI_MemoryArchived>已為 {0} 歸檔記憶</RimTalk_UI_MemoryArchived>
+  <RimTalk_UI_ArchiveAll>歸檔全部</RimTalk_UI_ArchiveAll>
+  <RimTalk_UI_MemoriesArchivedCount>已為 {0} 名殖民者歸檔記憶</RimTalk_UI_MemoriesArchivedCount>
+  
+  <RimTalk_Tooltip_Preview>查看注入預覽</RimTalk_Tooltip_Preview>
+  <RimTalk_Tooltip_Knowledge>管理常識庫</RimTalk_Tooltip_Knowledge>
+  <RimTalk_Tooltip_ABM>超短期緩衝記憶（最新3條）</RimTalk_Tooltip_ABM>
+  <RimTalk_Tooltip_SCM>情境上下文記憶（最近20條）</RimTalk_Tooltip_SCM>
+  <RimTalk_Tooltip_ELS>事件日誌存儲（50個事件）</RimTalk_Tooltip_ELS>
+  <RimTalk_Tooltip_CLPA>壓縮長期永久檔案（無限）</RimTalk_Tooltip_CLPA>
+  
+  <RimTalk_UI_Edit>編輯</RimTalk_UI_Edit>
+  <RimTalk_UI_Pin>固定</RimTalk_UI_Pin>
+  <RimTalk_UI_Pinned>已固定</RimTalk_UI_Pinned>
+  <RimTalk_UI_Delete>刪除</RimTalk_UI_Delete>
+  <RimTalk_UI_ConfirmDeleteMemory>刪除這條記憶？</RimTalk_UI_ConfirmDeleteMemory>
+  <RimTalk_MemoryDeleted>記憶已刪除</RimTalk_MemoryDeleted>
+  
+  <RimTalk_Tooltip_Edit>編輯記憶內容</RimTalk_Tooltip_Edit>
+  <RimTalk_Tooltip_Pin>固定以防止自動清理</RimTalk_Tooltip_Pin>
+  <RimTalk_Tooltip_Unpin>取消固定以允許自動清理</RimTalk_Tooltip_Unpin>
+  <RimTalk_Tooltip_Delete>刪除這條記憶</RimTalk_Tooltip_Delete>
+  <RimTalk_Tooltip_Importance>重要性評分（影響注入優先級）</RimTalk_Tooltip_Importance>
+  <RimTalk_Tooltip_Activity>活躍度評分（用於自動清理）</RimTalk_Tooltip_Activity>
+  <RimTalk_Tooltip_Notes>附加備註</RimTalk_Tooltip_Notes>
+  <RimTalk_Tooltip_Tags>標籤: {0}</RimTalk_Tooltip_Tags>
+  
+  <RimTalk_With>與</RimTalk_With>
+  <RimTalk_MemoryType_Conversation>對話</RimTalk_MemoryType_Conversation>
+  <RimTalk_MemoryType_Action>行動</RimTalk_MemoryType_Action>
+  
+  <RimTalk_Settings_MustEnterGame>必須先進入遊戲</RimTalk_Settings_MustEnterGame>
+  <RimTalk_Settings_CannotFindManager>找不到記憶管理器</RimTalk_Settings_CannotFindManager>
+  
+  <RimTalk_Menu_MemoryCompUnavailable>記憶組件不可用</RimTalk_Menu_MemoryCompUnavailable>
+  <RimTalk_Menu_CreateMemoryFailed>創建記憶失敗</RimTalk_Menu_CreateMemoryFailed>
+  <RimTalk_Menu_OpenEditFailed>打開編輯對話框失敗</RimTalk_Menu_OpenEditFailed>
+  <RimTalk_Menu_AddActionMemory>添加行動記憶到 {0}</RimTalk_Menu_AddActionMemory>
+  <RimTalk_Menu_AddConversationMemory>添加對話記憶到 {0}</RimTalk_Menu_AddConversationMemory>
+  
+  <RimTalk_Layer_ELS>ELS</RimTalk_Layer_ELS>
+  <RimTalk_Layer_CLPA>CLPA</RimTalk_Layer_CLPA>
+  
+  <!-- ==================== 匹配源分類 ==================== -->
+  <RimTalk_MatchSource_CategoryDialogue>對話類</RimTalk_MatchSource_CategoryDialogue>
+  <RimTalk_MatchSource_CategoryPawn>Pawn 屬性類</RimTalk_MatchSource_CategoryPawn>
+  <RimTalk_MatchSource_CategoryEnvironment>環境類</RimTalk_MatchSource_CategoryEnvironment>
+  <RimTalk_MatchSource_CategoryColony>殖民地類</RimTalk_MatchSource_CategoryColony>
+  <RimTalk_MatchSource_CategoryTime>時間類</RimTalk_MatchSource_CategoryTime>
+  <RimTalk_MatchSource_CategoryExtension>擴展類</RimTalk_MatchSource_CategoryExtension>
+  
+  <!-- ==================== 設置界面 ==================== -->
+  <!-- 主界面 -->
+  <RimTalk_Settings_APIConfigTitle>API 配置</RimTalk_Settings_APIConfigTitle>
+  <RimTalk_Settings_AdvancedSettings>高級設置...</RimTalk_Settings_AdvancedSettings>
+  
+  <!-- 預設配置 -->
+  <RimTalk_Settings_PresetConfig>預設配置</RimTalk_Settings_PresetConfig>
+  <RimTalk_Settings_PresetConfigDesc>從記憶/常識注入數量少到多快速切換，並預估 token 消耗</RimTalk_Settings_PresetConfigDesc>
+  <RimTalk_Settings_PresetLight>輕量</RimTalk_Settings_PresetLight>
+  <RimTalk_Settings_PresetBalanced>平衡</RimTalk_Settings_PresetBalanced>
+  <RimTalk_Settings_PresetEnhanced>強化</RimTalk_Settings_PresetEnhanced>
+  <RimTalk_Settings_PresetCardContent>{0}\n記憶 {1} | 常識 {2}\n~{3} tokens</RimTalk_Settings_PresetCardContent>
+  <RimTalk_Settings_PresetCardTooltip>記憶 {0} 條 + 常識 {1} 條\n預計消耗 ~{2} tokens</RimTalk_Settings_PresetCardTooltip>
+  <RimTalk_Settings_PresetApplied>已應用預設: {0} (記憶 {1}, 常識 {2})</RimTalk_Settings_PresetApplied>
+  
+  <!-- 功能入口 -->
+  <RimTalk_Settings_FeatureEntries>功能入口</RimTalk_Settings_FeatureEntries>
+  <RimTalk_Settings_KnowledgeLibrary>常識庫</RimTalk_Settings_KnowledgeLibrary>
+  <RimTalk_Settings_KnowledgeLibraryTip>打開並管理全局常識庫</RimTalk_Settings_KnowledgeLibraryTip>
+  <RimTalk_Settings_PromptReplacement>提示詞替換</RimTalk_Settings_PromptReplacement>
+  <RimTalk_Settings_PromptReplacementTip>編輯提示詞替換/規範化規則</RimTalk_Settings_PromptReplacementTip>
+  <RimTalk_Settings_InjectionPreviewer>注入預覽器</RimTalk_Settings_InjectionPreviewer>
+  <RimTalk_Settings_InjectionPreviewerTip>實時查看記憶/常識注入效果</RimTalk_Settings_InjectionPreviewerTip>
+  
+  <!-- 動態注入設置 -->
+  <RimTalk_Settings_DynamicInjectionSection>動態注入設置</RimTalk_Settings_DynamicInjectionSection>
+  <RimTalk_Settings_EnableDynamicInjection>啟用動態注入</RimTalk_Settings_EnableDynamicInjection>
+  <RimTalk_Settings_DynamicInjectionDesc>智能選擇最相關的記憶和常識注入到AI對話中</RimTalk_Settings_DynamicInjectionDesc>
+  <RimTalk_Settings_MaxABMInjectionRoundsLabel>ABM 注入輪數: {0}</RimTalk_Settings_MaxABMInjectionRoundsLabel>
+  <RimTalk_Settings_MaxABMInjectionRoundsDesc>控制注入多少輪最近的對話到 AI 上下文中</RimTalk_Settings_MaxABMInjectionRoundsDesc>
+  <RimTalk_Settings_MaxConversationABMLabel>對話ABM上限: {0}</RimTalk_Settings_MaxConversationABMLabel>
+  <RimTalk_Settings_MaxConversationABMDesc>每次注入最多保留多少條對話ABM（隨機選取）。設為0則完全禁用對話ABM</RimTalk_Settings_MaxConversationABMDesc>
+  <RimTalk_Settings_IsPlayerDialogueInject>記錄玩家發言</RimTalk_Settings_IsPlayerDialogueInject>
+  <RimTalk_Settings_IsPlayerDialogueInjectDesc>開啟後，玩家通過對話框發送的消息也會被記錄到輪次記憶中</RimTalk_Settings_IsPlayerDialogueInjectDesc>
+  <RimTalk_Settings_IsRoundMemoryActive>是否開啟輪次記憶</RimTalk_Settings_IsRoundMemoryActive>
+  <RimTalk_Settings_IsRoundMemoryActiveDesc>開啟後，記憶拓展會改為以輪次記憶為單位捕獲和注入記憶</RimTalk_Settings_IsRoundMemoryActiveDesc>
+  <RimTalk_Settings_MaxInjectedMemoriesLabel>最大注入記憶數: {0}</RimTalk_Settings_MaxInjectedMemoriesLabel>
+  <RimTalk_Settings_MaxInjectedKnowledgeLabel>最大注入常識數: {0}</RimTalk_Settings_MaxInjectedKnowledgeLabel>
+  <RimTalk_Settings_MemoryScoreThresholdLabel>記憶評分閾值: {0}</RimTalk_Settings_MemoryScoreThresholdLabel>
+  <RimTalk_Settings_KnowledgeScoreThresholdLabel>常識評分閾值: {0}</RimTalk_Settings_KnowledgeScoreThresholdLabel>
+  
+  <!-- 記憶容量設置 -->
+  <RimTalk_Settings_MemoryCapacitySection>記憶容量配置</RimTalk_Settings_MemoryCapacitySection>
+  <RimTalk_Settings_SCMCapacityLabel>SCM (短期記憶): {0} 條</RimTalk_Settings_SCMCapacityLabel>
+  <RimTalk_Settings_ELSCapacityLabel>ELS (中期記憶): {0} 條</RimTalk_Settings_ELSCapacityLabel>
+  
+  <!-- 衰減設置 -->
+  <RimTalk_Settings_MemoryDecaySection>記憶衰減配置</RimTalk_Settings_MemoryDecaySection>
+  <RimTalk_Settings_SCMDecayLabel>SCM 衰減率: {0}</RimTalk_Settings_SCMDecayLabel>
+  <RimTalk_Settings_ELSDecayLabel>ELS 衰減率: {0}</RimTalk_Settings_ELSDecayLabel>
+  <RimTalk_Settings_CLPADecayLabel>CLPA 衰減率: {0}</RimTalk_Settings_CLPADecayLabel>
+  
+  <!-- 總結設置 -->
+  <RimTalk_Settings_SummarizationSection>記憶總結設置</RimTalk_Settings_SummarizationSection>
+  <RimTalk_Settings_EnableDailySummarization>啟用每日總結</RimTalk_Settings_EnableDailySummarization>
+  <RimTalk_Settings_TriggerTimeLabel>觸發時間: {0}時</RimTalk_Settings_TriggerTimeLabel>
+  <RimTalk_Settings_EnableAutoArchive>啟用自動歸檔</RimTalk_Settings_EnableAutoArchive>
+  
+  <!-- AI 配置 -->
+  <RimTalk_Settings_AIConfigSection>AI 配置</RimTalk_Settings_AIConfigSection>
+  <RimTalk_Settings_PreferRimTalkAI>優先使用 RimTalk 配置</RimTalk_Settings_PreferRimTalkAI>
+  <RimTalk_Settings_WillFollowRimTalkConfig>將自動跟隨 RimTalk Mod 的 AI 配置</RimTalk_Settings_WillFollowRimTalkConfig>
+  <RimTalk_Settings_APIKey>API Key</RimTalk_Settings_APIKey>
+  <RimTalk_Settings_APIURL>API URL</RimTalk_Settings_APIURL>
+  <RimTalk_Settings_ModelName>Model</RimTalk_Settings_ModelName>
+  <RimTalk_Settings_CustomApiFields>自定義API請求欄位(ExpandMemory)</RimTalk_Settings_CustomApiFields>
+  <RimTalk_Settings_CustomApiFieldsDesc>附加到ExpandMemory請求體的JSON片段。例："reasoning_effort": "high"。留空則不注入。</RimTalk_Settings_CustomApiFieldsDesc>
+  <RimTalk_Settings_OriginalCustomApiFields>自定義API請求欄位(RimTalk)</RimTalk_Settings_OriginalCustomApiFields>
+  <RimTalk_Settings_OriginalCustomApiFieldsDesc>附加到RimTalk本體請求體的JSON片段。對RimTalk AI調用生效</RimTalk_Settings_OriginalCustomApiFieldsDesc>
+  <RimTalk_Settings_EnablePromptCaching>啟用 Prompt Caching</RimTalk_Settings_EnablePromptCaching>
+  <RimTalk_Settings_EnablePromptCachingUnavailable>啟用 Prompt Caching (不可用)</RimTalk_Settings_EnablePromptCachingUnavailable>
+  <RimTalk_Settings_OpenAICachingSupport>✓ OpenAI 支持 Prompt Caching (Beta)</RimTalk_Settings_OpenAICachingSupport>
+  <RimTalk_Settings_OpenAICachingModels>適用模型: gpt-4o, gpt-4-turbo</RimTalk_Settings_OpenAICachingModels>
+  <RimTalk_Settings_DeepSeekCachingSupport>✓ DeepSeek 支持 Prompt Caching</RimTalk_Settings_DeepSeekCachingSupport>
+  <RimTalk_Settings_DeepSeekCachingSavings>可節省約 50% 費用</RimTalk_Settings_DeepSeekCachingSavings>
+  <RimTalk_Settings_Player2NoCaching>✗ Player2 不支持 Prompt Caching</RimTalk_Settings_Player2NoCaching>
+  <RimTalk_Settings_Player2LocalNoCache>本地客戶端無需緩存</RimTalk_Settings_Player2LocalNoCache>
+  <RimTalk_Settings_GoogleNoCaching>✗ Google Gemini 不支持 Prompt Caching</RimTalk_Settings_GoogleNoCaching>
+  <RimTalk_Settings_CustomNoCaching>✗ 自定義API 不支持 Prompt Caching</RimTalk_Settings_CustomNoCaching>
+  <RimTalk_Settings_CustomCachingDepends>取決於您的 API 實現</RimTalk_Settings_CustomCachingDepends>
+  <RimTalk_Settings_ValidateConfig>✓ 重新加載並驗證配置</RimTalk_Settings_ValidateConfig>
+  <RimTalk_Settings_ValidateConfigTip>提示: 發送最小API請求以驗證連通性和憑證（會消耗極少token，暫不支持谷歌）</RimTalk_Settings_ValidateConfigTip>
+  <RimTalk_Settings_UsingRimTalkConfigNoValidation>當前使用 RimTalk 配置，無需驗證獨立配置</RimTalk_Settings_UsingRimTalkConfigNoValidation>
+  <RimTalk_Settings_PleaseEnterAPIKey>請先輸入 API Key</RimTalk_Settings_PleaseEnterAPIKey>
+  <RimTalk_Settings_PleaseEnterAPIURL>請先輸入 API URL</RimTalk_Settings_PleaseEnterAPIURL>
+  <RimTalk_Settings_PleaseEnterModel>請先輸入 Model</RimTalk_Settings_PleaseEnterModel>
+  <RimTalk_Settings_Validating>配置驗證中...</RimTalk_Settings_Validating>
+  <RimTalk_Settings_ValidationSuccess>✓ 配置驗證成功！提供商: {0}</RimTalk_Settings_ValidationSuccess>
+  <RimTalk_Settings_ValidationFailed>✗ 配置驗證失敗，請檢查 API Key 和 URL</RimTalk_Settings_ValidationFailed>
+  <RimTalk_Settings_ValidationError>✗ 驗證失敗: {0}</RimTalk_Settings_ValidationError>
+  
+  <!-- 記憶類型 -->
+  <RimTalk_Settings_MemoryTypesSection>記憶類型開關</RimTalk_Settings_MemoryTypesSection>
+  <RimTalk_Settings_ActionMemory>行動記憶</RimTalk_Settings_ActionMemory>
+  <RimTalk_Settings_ConversationMemory>對話記憶</RimTalk_Settings_ConversationMemory>
+  <RimTalk_Settings_PrisonerMemory>囚犯擴展記憶</RimTalk_Settings_PrisonerMemory>
+  
+  <!-- 實驗性功能 -->
+  <RimTalk_Settings_ExperimentalSection>🚀 實驗性功能</RimTalk_Settings_ExperimentalSection>
+  <RimTalk_Settings_EnableActivityTargetPostfix>後置活動對象補丁</RimTalk_Settings_EnableActivityTargetPostfix>
+  <RimTalk_Settings_EnableProactiveRecall>啟用主動記憶召回</RimTalk_Settings_EnableProactiveRecall>
+  <RimTalk_Settings_TriggerChanceLabel>觸發概率: {0}</RimTalk_Settings_TriggerChanceLabel>
+  
+  <!-- 向量增強 -->
+  <RimTalk_Settings_VectorEnhancementSection>🔬 向量增強設置</RimTalk_Settings_VectorEnhancementSection>
+  
+  <!-- 高級設置窗口 -->
+  <RimTalk_Settings_AdvancedSettingsTitle>高級設置</RimTalk_Settings_AdvancedSettingsTitle>
+  <RimTalk_Settings_AdvancedSettingsDesc>包含注入、記憶容量、衰減等詳細配置</RimTalk_Settings_AdvancedSettingsDesc>
+  
+  <!-- 提示詞替換窗口 -->
+  <RimTalk_Settings_PromptReplacementTitle>提示詞替換</RimTalk_Settings_PromptReplacementTitle>
+  <RimTalk_Settings_PromptReplacementDesc>在發送給 AI 前自動規範化提示詞</RimTalk_Settings_PromptReplacementDesc>
+  
+  <!-- ==================== SettingsUIDrawers 翻譯 ==================== -->
+  <!-- AI 提供商選擇 -->
+  <RimTalk_Settings_AIProvider>AI 提供商</RimTalk_Settings_AIProvider>
+  <RimTalk_Settings_CurrentProvider>當前: {0}</RimTalk_Settings_CurrentProvider>
+  <RimTalk_Settings_SelectProvider>選擇提供商</RimTalk_Settings_SelectProvider>
+  
+  <!-- 提供商描述 -->
+  <RimTalk_Settings_OpenAIDesc1>✦ OpenAI GPT 系列模型，穩定可靠</RimTalk_Settings_OpenAIDesc1>
+  <RimTalk_Settings_OpenAIDesc2>推薦模型: gpt-3.5-turbo, gpt-4</RimTalk_Settings_OpenAIDesc2>
+  <RimTalk_Settings_DeepSeekDesc1>✦ DeepSeek 中文優化模型，性價比高</RimTalk_Settings_DeepSeekDesc1>
+  <RimTalk_Settings_DeepSeekDesc2>推薦模型: deepseek-v4-flash（性價比高，極其建議關閉推理）, deepseek-v4-pro（貴，提升小）</RimTalk_Settings_DeepSeekDesc2>
+  <RimTalk_Settings_Player2Desc1>✦ Player2 遊戲優化 AI，支持本地客戶端</RimTalk_Settings_Player2Desc1>
+  <RimTalk_Settings_Player2Desc2>推薦模型: gpt-4o, gpt-4-turbo</RimTalk_Settings_Player2Desc2>
+  <RimTalk_Settings_GoogleDesc1>✦ Google Gemini 系列，多模態能力強</RimTalk_Settings_GoogleDesc1>
+  <RimTalk_Settings_GoogleDesc2>推薦模型: gemini-2.0-flash-exp</RimTalk_Settings_GoogleDesc2>
+  <RimTalk_Settings_CustomDesc1>✦ 自定義 API 端點，支持第三方代理</RimTalk_Settings_CustomDesc1>
+  <RimTalk_Settings_CustomDesc2>請手動配置 API URL 和 Model</RimTalk_Settings_CustomDesc2>
+  
+  <!-- 知識匹配源 -->
+  <RimTalk_Settings_KnowledgeMatchingSources>知識匹配源選擇</RimTalk_Settings_KnowledgeMatchingSources>
+  <RimTalk_Settings_KnowledgeMatchingSourcesDesc>選擇用於常識匹配的變量，Pawn 屬性會自動匹配所有對話參與者</RimTalk_Settings_KnowledgeMatchingSourcesDesc>
+  <RimTalk_Settings_RefreshList>刷新列表</RimTalk_Settings_RefreshList>
+  <RimTalk_Settings_ListRefreshed>已刷新變量列表</RimTalk_Settings_ListRefreshed>
+  <RimTalk_Settings_VariableCount>共 {0} 個變量 (Pawn 屬性: {1})</RimTalk_Settings_VariableCount>
+  <RimTalk_Settings_PawnPropertyTooltip>屬性: {0}\n類型: Pawn 屬性\n\n{1}\n\n勾選後會自動匹配所有參與對話的 Pawn 的此屬性</RimTalk_Settings_PawnPropertyTooltip>
+  <RimTalk_Settings_VariableTooltip>變量: {0}\n\n{1}</RimTalk_Settings_VariableTooltip>
+  <RimTalk_Settings_AtLeastOneSource>至少需要選擇一個匹配源</RimTalk_Settings_AtLeastOneSource>
+  <RimTalk_Settings_SelectedCount>已選擇: {0} 個 (Pawn 屬性: {1}, 其他: {2})</RimTalk_Settings_SelectedCount>
+  
+  <!-- 常識鏈設置 -->
+  <RimTalk_Settings_EnableKnowledgeChaining>啟用常識鏈（實驗性）</RimTalk_Settings_EnableKnowledgeChaining>
+  <RimTalk_Settings_KnowledgeChainingDesc>允許常識觸發常識，進行多輪匹配</RimTalk_Settings_KnowledgeChainingDesc>
+  <RimTalk_Settings_MaxChainingRoundsLabel>最大輪數: {0}</RimTalk_Settings_MaxChainingRoundsLabel>
+  
+  <!-- 提示詞規範化 -->
+  <RimTalk_Settings_ReplacementRulesList>替換規則列表</RimTalk_Settings_ReplacementRulesList>
+  <RimTalk_Settings_AddNewRule>+ 添加新規則</RimTalk_Settings_AddNewRule>
+  <RimTalk_Settings_EnabledRulesCount>已啟用: {0} / {1} 條規則</RimTalk_Settings_EnabledRulesCount>
+  <RimTalk_Settings_RuleExample>✦ 示例：模式 \(Player\) → 替換 Master</RimTalk_Settings_RuleExample>
+  <RimTalk_Settings_RegexSupport>支持正則表達式（忽略大小寫）</RimTalk_Settings_RegexSupport>
+  
+  <!-- 向量增強設置 -->
+  <RimTalk_Settings_EnableVectorEnhancement>啟用向量增強</RimTalk_Settings_EnableVectorEnhancement>
+  <RimTalk_Settings_VectorEnhancementDesc>使用語義向量檢索來增強常識匹配。</RimTalk_Settings_VectorEnhancementDesc>
+  <RimTalk_Settings_SimilarityThresholdLabel>相似度閾值: {0}</RimTalk_Settings_SimilarityThresholdLabel>
+  <RimTalk_Settings_MaxVectorResultsLabel>最大補充結果: {0}</RimTalk_Settings_MaxVectorResultsLabel>
+  <RimTalk_Settings_CloudEmbeddingConfig>雲端 Embedding 配置</RimTalk_Settings_CloudEmbeddingConfig>
+  <RimTalk_Settings_EmbeddingAPIKey>API Key</RimTalk_Settings_EmbeddingAPIKey>
+  <RimTalk_Settings_EmbeddingAPIURL>API URL</RimTalk_Settings_EmbeddingAPIURL>
+  <RimTalk_Settings_EmbeddingModel>Model</RimTalk_Settings_EmbeddingModel>
+  <RimTalk_Settings_EmbeddingAPIKeyTip>提示: 留空 API Key 將使用上方 AI 配置中的 API Key</RimTalk_Settings_EmbeddingAPIKeyTip>
+  
+  <!-- ==================== MainTabWindow_Memory 翻譯 ==================== -->
+  <!-- Controls -->
+  <RimTalk_MindStream_RightClickToCreate>右鍵點擊新建{0}記憶</RimTalk_MindStream_RightClickToCreate>
+  <RimTalk_MindStream_SummarizeSelectedBoth>總結選中 (ABM:{0} + SCM:{1})</RimTalk_MindStream_SummarizeSelectedBoth>
+  <RimTalk_MindStream_SummarizeSelectedABM>總結選中 (ABM:{0})</RimTalk_MindStream_SummarizeSelectedABM>
+  <RimTalk_MindStream_SummarizeSelectedSCM>總結選中 (SCM:{0})</RimTalk_MindStream_SummarizeSelectedSCM>
+  <RimTalk_MindStream_SummarizeAllBoth>總結全部 (ABM:{0} + SCM:{1})</RimTalk_MindStream_SummarizeAllBoth>
+  <RimTalk_MindStream_SummarizeAllABM>總結全部 (ABM:{0})</RimTalk_MindStream_SummarizeAllABM>
+  <RimTalk_MindStream_SummarizeAllSCM>總結全部 (SCM:{0})</RimTalk_MindStream_SummarizeAllSCM>
+  <RimTalk_MindStream_ArchiveAllCount>歸檔全部 ({0})</RimTalk_MindStream_ArchiveAllCount>
+  <RimTalk_MindStream_DeleteAllCount>刪除全部 ({0})</RimTalk_MindStream_DeleteAllCount>
+  <RimTalk_MindStream_PleaseSelectColonist>請先選擇一個殖民者</RimTalk_MindStream_PleaseSelectColonist>
+  <RimTalk_MindStream_AddConversationTo>添加對話記憶到 {0}</RimTalk_MindStream_AddConversationTo>
+  <RimTalk_MindStream_AddActionTo>添加行動記憶到 {0}</RimTalk_MindStream_AddActionTo>
+  
+  <!-- TopBar -->
+  <RimTalk_MindStream_SummaryPrompt>總結提示詞</RimTalk_MindStream_SummaryPrompt>
+  
+  <!-- Utilities -->
+  <RimTalk_Close>關閉</RimTalk_Close>
+  <RimTalk_MindStream_GuideContent>=== Mind Stream 操作指南 ===
+
+【選擇記憶】
+• 單擊：選中單條記憶
+• Ctrl+單擊：多選/取消選擇
+• Shift+單擊：範圍選擇
+• 拖拽框選：批量選擇
+
+【批量操作】
+• 總結：將SCM記憶總結到ELS
+• 歸檔：將ELS記憶歸檔到CLPA
+• 刪除：刪除選中的記憶
+
+【右鍵功能】
+• ELS/CLPA複選框上右鍵可新建記憶
+
+【層級說明】
+• ABM (藍色): 超短期記憶
+• SCM (綠色): 短期記憶
+• ELS (黃色): 事件日誌
+• CLPA (紫色): 長期檔案</RimTalk_MindStream_GuideContent>
+  
+  <!-- ==================== Dialog_PromptEditor 翻譯 ==================== -->
+  <RimTalk_PromptEditor_Title>總結提示詞配置</RimTalk_PromptEditor_Title>
+  <RimTalk_PromptEditor_Desc>自定義 AI 總結記憶時使用的提示詞模板</RimTalk_PromptEditor_Desc>
+  <RimTalk_PromptEditor_ResetDefault>恢復默認</RimTalk_PromptEditor_ResetDefault>
+  <RimTalk_PromptEditor_ResetConfirm>確定要恢復默認提示詞嗎？</RimTalk_PromptEditor_ResetConfirm>
+  <RimTalk_Save>保存</RimTalk_Save>
+  <RimTalk_Cancel>取消</RimTalk_Cancel>
+  <RimTalk_PromptEditor_DailySummary>每日總結提示詞</RimTalk_PromptEditor_DailySummary>
+  <RimTalk_PromptEditor_DailySummaryDesc>用於 SCM → ELS 的每日總結（處理約20條記憶）</RimTalk_PromptEditor_DailySummaryDesc>
+  <RimTalk_PromptEditor_Placeholders>佔位符: {0}=殖民者名字, {1}=記憶列表</RimTalk_PromptEditor_Placeholders>
+  <RimTalk_PromptEditor_DeepArchive>深度歸檔提示詞</RimTalk_PromptEditor_DeepArchive>
+  <RimTalk_PromptEditor_DeepArchiveDesc>用於 ELS → CLPA 的深度歸檔（處理約15條記憶）</RimTalk_PromptEditor_DeepArchiveDesc>
+  <RimTalk_PromptEditor_MaxTokens>最大輸出 Tokens</RimTalk_PromptEditor_MaxTokens>
+  <RimTalk_PromptEditor_MaxTokensDesc>控制 AI 生成總結的最大長度</RimTalk_PromptEditor_MaxTokensDesc>
+  <RimTalk_PromptEditor_MaxTokensLabel>Max Tokens: {0}</RimTalk_PromptEditor_MaxTokensLabel>
+  <RimTalk_PromptEditor_Tips>💡 提示:</RimTalk_PromptEditor_Tips>
+  <RimTalk_PromptEditor_Tip1>• 較小的值（100-500）適合簡短總結</RimTalk_PromptEditor_Tip1>
+  <RimTalk_PromptEditor_Tip2>• 較大的值（1000-4000）適合詳細總結</RimTalk_PromptEditor_Tip2>
+  <RimTalk_PromptEditor_Tip3>• 過大的值會增加 API 費用</RimTalk_PromptEditor_Tip3>
+  <RimTalk_PromptEditor_Saved>總結提示詞配置已保存</RimTalk_PromptEditor_Saved>
+  
+  <!-- ==================== Dialog_InjectionPreview 翻譯 ==================== -->
+  <RimTalk_Preview_Title>注入預覽</RimTalk_Preview_Title>
+  <RimTalk_Preview_CurrentPawn>當前角色:</RimTalk_Preview_CurrentPawn>
+  <RimTalk_Preview_TargetPawn>目標角色:</RimTalk_Preview_TargetPawn>
+  <RimTalk_Preview_None>無</RimTalk_Preview_None>
+  <RimTalk_Preview_NoneClickToSelect>無 (點擊選擇)</RimTalk_Preview_NoneClickToSelect>
+  <RimTalk_Preview_Clear>清除</RimTalk_Preview_Clear>
+  <RimTalk_Preview_Refresh>刷新預覽</RimTalk_Preview_Refresh>
+  <RimTalk_Preview_NoColonist>沒有可用的殖民者</RimTalk_Preview_NoColonist>
+  
+  <RimTalk_Preview_KnowledgeSection>常識注入</RimTalk_Preview_KnowledgeSection>
+  <RimTalk_Preview_MatchingSource>匹配源</RimTalk_Preview_MatchingSource>
+  <RimTalk_Preview_ParsedMatchText>解析後的匹配文本:</RimTalk_Preview_ParsedMatchText>
+  <RimTalk_Preview_NoParsedText>(無解析文本)</RimTalk_Preview_NoParsedText>
+  <RimTalk_Preview_MatchedKnowledge>被匹配的常識:</RimTalk_Preview_MatchedKnowledge>
+  <RimTalk_Preview_NoMatchedKnowledge>沒有匹配到常識</RimTalk_Preview_NoMatchedKnowledge>
+  <RimTalk_Preview_NoMatchingSources>沒有配置匹配源</RimTalk_Preview_NoMatchingSources>
+  <RimTalk_Preview_Score>評分: {0}</RimTalk_Preview_Score>
+  
+  <RimTalk_Preview_MemorySection>記憶注入</RimTalk_Preview_MemorySection>
+  <RimTalk_Preview_MemoryLayers>記憶層級:</RimTalk_Preview_MemoryLayers>
+  <RimTalk_Preview_InjectionConfig>注入配置:</RimTalk_Preview_InjectionConfig>
+  <RimTalk_Preview_ClickRefresh>點擊"刷新預覽"查看結果</RimTalk_Preview_ClickRefresh>
+  <RimTalk_Preview_NoMemoryComp>選中的角色沒有記憶組件</RimTalk_Preview_NoMemoryComp>
+  <RimTalk_Preview_SelectedMemories>選中的記憶:</RimTalk_Preview_SelectedMemories>
+  <RimTalk_Preview_ScoreDetail>評分: {0}</RimTalk_Preview_ScoreDetail>
+  <RimTalk_Preview_NoMemoriesAboveThreshold>沒有超過閾值的記憶</RimTalk_Preview_NoMemoriesAboveThreshold>
+  <RimTalk_Preview_StaticMode>靜態模式 (動態注入已禁用)</RimTalk_Preview_StaticMode>
+  <RimTalk_Preview_Error>錯誤: {0}</RimTalk_Preview_Error>
+  
+  <RimTalk_Preview_ABMCount>ABM: {0} 條對話</RimTalk_Preview_ABMCount>
+  <RimTalk_Preview_ELSCount>ELS: {0} 條</RimTalk_Preview_ELSCount>
+  <RimTalk_Preview_CLPACount>CLPA: {0} 條</RimTalk_Preview_CLPACount>
+  <RimTalk_Preview_MaxInjectedMemories>最大注入記憶: {0}</RimTalk_Preview_MaxInjectedMemories>
+  <RimTalk_Preview_MemoryThreshold>記憶閾值: {0}</RimTalk_Preview_MemoryThreshold>
+  <RimTalk_Preview_MaxInjectedKnowledge>最大注入常識: {0}</RimTalk_Preview_MaxInjectedKnowledge>
+  <RimTalk_Preview_KnowledgeThreshold>常識閾值: {0}</RimTalk_Preview_KnowledgeThreshold>
+  <RimTalk_Preview_DynamicEnabled>動態注入: 已啟用</RimTalk_Preview_DynamicEnabled>
+  <RimTalk_Preview_DynamicDisabled>動態注入: 已禁用</RimTalk_Preview_DynamicDisabled>
+  
+  <RimTalk_Preview_Colonist>(殖民者)</RimTalk_Preview_Colonist>
+  <RimTalk_Preview_Prisoner>(囚犯)</RimTalk_Preview_Prisoner>
+  <RimTalk_Preview_Slave>(奴隸)</RimTalk_Preview_Slave>
+  <RimTalk_Preview_Guest>(客人)</RimTalk_Preview_Guest>
+  <RimTalk_Preview_SameAsCurrent>(與當前相同)</RimTalk_Preview_SameAsCurrent>
+  <RimTalk_Preview_NoHumanlikes>沒有可選擇的類人角色</RimTalk_Preview_NoHumanlikes>
+  <RimTalk_Preview_Help>使用幫助</RimTalk_Preview_Help>
+  <RimTalk_Preview_NoContext>[無上下文，請先觸發一次對話]</RimTalk_Preview_NoContext>
+  <RimTalk_Preview_HelpContent>=== 注入預覽器使用幫助 ===
+
+【功能說明】
+此工具用於預覽記憶和常識注入效果，幫助你了解AI對話時會使用哪些信息。
+
+【常識注入】
+• 匹配源：選擇用於常識匹配的變量
+• Pawn屬性變量會同時解析所有參與者
+• 解析後的匹配文本用於與常識庫進行關鍵詞匹配
+• 匹配結果按評分排序顯示
+
+【記憶注入】
+• ABM：超短期對話記憶（完整對話輪次）
+• SCM：短期記憶（已廢棄，直接總結到ELS）
+• ELS：事件日誌存儲（AI總結後的記憶）
+• CLPA：長期檔案（重要事件歸檔）
+
+【使用步驟】
+1. 選擇當前角色（必須）
+2. 可選：選擇目標角色（模擬對話場景）
+3. 勾選需要的匹配源
+4. 點擊"刷新預覽"查看結果
+
+【提示】
+• 匹配源設置會同步到全局設置
+• Pawn屬性變量只需要角色信息即可解析
+• 環境類變量需要角色所在地圖信息
+• 其他類變量需要至少生成一次對話後才可解析
+</RimTalk_Preview_HelpContent>
 </LanguageData>
