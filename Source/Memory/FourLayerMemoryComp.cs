@@ -754,12 +754,7 @@ namespace RimTalk.Memory
             {
                 memory.isPinned = pinned;
             }
-            if (memory?.layer == MemoryLayer.Active && memory.isPinned == true) // 固定ABM时自动转移至SCM
-            {
-                memory.layer = MemoryLayer.Situational;
-                SituationalMemories?.Add(memory);
-                ActiveMemories?.Remove(memory);
-            }
+            // Remove switching ABM into SCM since SCM is already abandoned
         }
         // RoundMemory入口
         public void PinRoundMemory(RoundMemory roundMemory, string memoryId)
@@ -767,11 +762,12 @@ namespace RimTalk.Memory
             Log.Message("[RoundMemory] FourLayerMemoryComp.PinMemory: Pinning RoundMemory");
 
             // 是 RoundMemory 类型，则创建一个新的 MemoryEntry 对象复制 RoundMemory
+            // Pin it as ABM instead of SCM
             var newMemory = new MemoryEntry(
-            content: string.Empty,
-            type: MemoryType.Conversation,
-            layer: MemoryLayer.Situational,
-            importance: 0.5f
+                content: string.Empty,
+                type: MemoryType.Conversation,
+                layer: MemoryLayer.Active,
+                importance: 0.5f
             )
             {
                 content = roundMemory.content,
@@ -786,7 +782,7 @@ namespace RimTalk.Memory
                 notes = roundMemory.notes,
                 aiCacheKey = roundMemory.aiCacheKey,
             };
-            SituationalMemories?.Add(newMemory);
+            ActiveMemories?.Add(newMemory);
             DeleteMemory(memoryId);
             Log.Message("[RoundMemory] FourLayerMemoryComp.PinMemory: Pinned RoundMemory as MemoryEntry");
 
