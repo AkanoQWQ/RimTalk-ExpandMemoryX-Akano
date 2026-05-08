@@ -653,46 +653,16 @@ namespace RimTalk.Memory.AI
             else
             {
                 // ? OpenAI/DeepSeek/Player2/Custom - 统一使用OpenAI兼容格式
-                
-                // 固定的系统指令（可缓存）
-                // [TODO] I strongly recommend remove hardcode system prompt
-                // 建议移除这个地方硬编码的系统提示词以提升跨语言兼容性
-                // 默认 user prompt 已经涵盖了指令部分
-                string systemPrompt = "你是一个RimWorld殖民地的记忆总结助手。\n" +
-                                    "请用极简的语言总结记忆内容。\n" +
-                                    "只输出总结文字，不要其他格式。";
-                
-                string escapedSystem = EscapeJsonString(systemPrompt);
+                // Remove hardcode Chinese prompt
+                // and remove cacheing (shouldn't work without system prompt)
                 string escapedPrompt = EscapeJsonString(prompt);
-                
+
                 var sb = new StringBuilder();
                 sb.Append("{");
                 sb.Append($"\"model\":\"{model}\",");
                 sb.Append("\"messages\":[");
-                
-                // system消息（带缓存控制）
-                sb.Append("{\"role\":\"system\",");
-                sb.Append($"\"content\":\"{escapedSystem}\"");
-                
-                if (enableCaching)
-                {
-                    // ? OpenAI/Custom/Player2 都尝试使用 cache_control
-                    if ((provider == "OpenAI" || provider == "Custom" || provider == "Player2") && 
-                        (model.Contains("gpt-4") || model.Contains("gpt-3.5")))
-                    {
-                        // OpenAI Prompt Caching
-                        sb.Append(",\"cache_control\":{\"type\":\"ephemeral\"}");
-                    }
-                    else if (provider == "DeepSeek")
-                    {
-                        // DeepSeek缓存控制
-                        sb.Append(",\"cache\":true");
-                    }
-                }
-                
-                sb.Append("},");
-                
-                // user消息（变化的内容）
+
+                // user消息
                 sb.Append("{\"role\":\"user\",");
                 sb.Append($"\"content\":\"{escapedPrompt}\"");
                 sb.Append("}],");
