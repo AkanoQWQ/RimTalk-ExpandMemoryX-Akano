@@ -55,6 +55,7 @@ namespace RimTalk.MemoryPatch
 
         // ⭐ v4.0: ABM 注入轮数配置
         public int maxABMInjectionRounds = 3;  // 默认注入最近3轮对话
+        public int maxConversationABM = 1;  // Max conversation ABM entries per pawn per injection
         
         // 衰减速率设置
         public float scmDecayRate = 0.01f;
@@ -129,6 +130,9 @@ namespace RimTalk.MemoryPatch
         public bool enableAdaptiveThreshold = false;
         public bool autoApplyAdaptiveThreshold = false;
         
+        // Activity target postfix - append missing job targets to RimTalk activity descriptions
+        public bool enableActivityTargetPostfix = false;
+
         // 主动记忆召回
         public bool enableProactiveRecall = false;
         public float recallTriggerChance = 0.15f;
@@ -185,6 +189,7 @@ namespace RimTalk.MemoryPatch
             
             // ⭐ v4.0: ABM 注入轮数
             Scribe_Values.Look(ref maxABMInjectionRounds, "fourLayer_maxABMInjectionRounds", 0); // 默认不注入 ABM 以向后兼容
+            Scribe_Values.Look(ref maxConversationABM, "fourLayer_maxConversationABM", 1);
             
             // ⭐ 是否注入玩家发言
             Scribe_Values.Look(ref IsPlayerDialogueInject, "fourLayer_isPlayerDialogueInject", true);
@@ -244,6 +249,7 @@ namespace RimTalk.MemoryPatch
             Scribe_Values.Look(ref autoApplyAdaptiveThreshold, "adaptive_autoApplyAdaptiveThreshold", false);
             Scribe_Values.Look(ref enableProactiveRecall, "recall_enableProactiveRecall", false);
             Scribe_Values.Look(ref recallTriggerChance, "recall_triggerChance", 0.15f);
+            Scribe_Values.Look(ref enableActivityTargetPostfix, "experimental_activityTargetPostfix", false);
 
             // Vector Enhancement
             Scribe_Values.Look(ref enableVectorEnhancement, "vector_enableVectorEnhancement", false);
@@ -435,9 +441,18 @@ namespace RimTalk.MemoryPatch
                 GUI.color = Color.gray;
                 listing.Label("  " + "RimTalk_Settings_MaxABMInjectionRoundsDesc".Translate());
                 GUI.color = Color.white;
-                
+
                 listing.Gap();
-                
+
+                // Conversation ABM cap
+                listing.Label("RimTalk_Settings_MaxConversationABMLabel".Translate(maxConversationABM));
+                maxConversationABM = (int)listing.Slider(maxConversationABM, 0, 8);
+                GUI.color = Color.gray;
+                listing.Label("  " + "RimTalk_Settings_MaxConversationABMDesc".Translate());
+                GUI.color = Color.white;
+
+                listing.Gap();
+
                 // ⭐ 是否注入玩家发言
                 listing.CheckboxLabeled("RimTalk_Settings_IsPlayerDialogueInject".Translate(), ref IsPlayerDialogueInject);
                 GUI.color = Color.gray;
@@ -775,6 +790,10 @@ namespace RimTalk.MemoryPatch
 
         private void DrawExperimentalFeaturesSettings(Listing_Standard listing)
         {
+            listing.CheckboxLabeled("RimTalk_Settings_EnableActivityTargetPostfix".Translate(), ref enableActivityTargetPostfix);
+
+            listing.Gap();
+
             listing.CheckboxLabeled("RimTalk_Settings_EnableProactiveRecall".Translate(), ref enableProactiveRecall);
             
             if (enableProactiveRecall)

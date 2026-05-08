@@ -329,6 +329,8 @@
   <RimTalk_Settings_IsPlayerDialogueInjectDesc>When enabled, messages sent by the player via the dialogue box will also be recorded into round memory</RimTalk_Settings_IsPlayerDialogueInjectDesc>
   <RimTalk_Settings_MaxABMInjectionRoundsLabel>ABM Injection Rounds: {0}</RimTalk_Settings_MaxABMInjectionRoundsLabel>
   <RimTalk_Settings_MaxABMInjectionRoundsDesc>Controls how many recent conversation rounds are injected into the AI context</RimTalk_Settings_MaxABMInjectionRoundsDesc>
+  <RimTalk_Settings_MaxConversationABMLabel>Conversation ABM Cap: {0}</RimTalk_Settings_MaxConversationABMLabel>
+  <RimTalk_Settings_MaxConversationABMDesc>Max conversation ABM entries per injection (randomly selected). Set to 0 to disable conversation ABM entirely</RimTalk_Settings_MaxConversationABMDesc>
   <RimTalk_Settings_MemoryTypesSection>Memory Type Toggles</RimTalk_Settings_MemoryTypesSection>
   <RimTalk_Settings_ActionMemory>Action Memory</RimTalk_Settings_ActionMemory>
   <RimTalk_Settings_ConversationMemory>Conversation Memory</RimTalk_Settings_ConversationMemory>
@@ -336,6 +338,7 @@
   
   <!-- Experimental Features -->
   <RimTalk_Settings_ExperimentalSection>🚀 Experimental Features</RimTalk_Settings_ExperimentalSection>
+  <RimTalk_Settings_EnableActivityTargetPostfix>Activity Target Postfix</RimTalk_Settings_EnableActivityTargetPostfix>
   <RimTalk_Settings_EnableProactiveRecall>Enable Proactive Memory Recall</RimTalk_Settings_EnableProactiveRecall>
   <RimTalk_Settings_TriggerChanceLabel>Trigger Chance: {0}</RimTalk_Settings_TriggerChanceLabel>
   

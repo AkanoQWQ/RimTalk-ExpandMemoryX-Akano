@@ -267,6 +267,8 @@
   <RimTalk_Settings_DynamicInjectionDesc>智能选择最相关的记忆和常识注入到AI对话中</RimTalk_Settings_DynamicInjectionDesc>
   <RimTalk_Settings_MaxABMInjectionRoundsLabel>ABM 注入轮数: {0}</RimTalk_Settings_MaxABMInjectionRoundsLabel>
   <RimTalk_Settings_MaxABMInjectionRoundsDesc>控制注入多少轮最近的对话到 AI 上下文中</RimTalk_Settings_MaxABMInjectionRoundsDesc>
+  <RimTalk_Settings_MaxConversationABMLabel>对话ABM上限: {0}</RimTalk_Settings_MaxConversationABMLabel>
+  <RimTalk_Settings_MaxConversationABMDesc>每次注入最多保留多少条对话ABM（随机选取）。设为0则完全禁用对话ABM</RimTalk_Settings_MaxConversationABMDesc>
   <RimTalk_Settings_IsPlayerDialogueInject>记录玩家发言</RimTalk_Settings_IsPlayerDialogueInject>
   <RimTalk_Settings_IsPlayerDialogueInjectDesc>开启后，玩家通过对话框发送的消息也会被记录到轮次记忆中</RimTalk_Settings_IsPlayerDialogueInjectDesc>
   <RimTalk_Settings_IsRoundMemoryActive>是否开启轮次记忆</RimTalk_Settings_IsRoundMemoryActive>
@@ -334,6 +336,7 @@
   
   <!-- 实验性功能 -->
   <RimTalk_Settings_ExperimentalSection>🚀 实验性功能</RimTalk_Settings_ExperimentalSection>
+  <RimTalk_Settings_EnableActivityTargetPostfix>后置活动对象补丁</RimTalk_Settings_EnableActivityTargetPostfix>
   <RimTalk_Settings_EnableProactiveRecall>启用主动记忆召回</RimTalk_Settings_EnableProactiveRecall>
   <RimTalk_Settings_TriggerChanceLabel>触发概率: {0}</RimTalk_Settings_TriggerChanceLabel>
   
