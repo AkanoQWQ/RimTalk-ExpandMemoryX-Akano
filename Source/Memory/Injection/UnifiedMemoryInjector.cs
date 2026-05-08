@@ -37,97 +37,44 @@ namespace RimTalk.Memory.Injection
             int maxABMRounds = settings?.maxABMInjectionRounds ?? 3;
             int maxTotalMemories = settings?.maxInjectedMemories ?? 10;
 
-            // Step 1: 采集 ABM（对话优先 + 行为补位）
-            // 【ABM全额注入】开关的作用由 maxABMInjectionRounds 配置项接管
+            // Step 1: Collect ABM, then cap raw conversations
+            // cap twice for more capacity
             var abmList = ABMCollector.Collect(pawn, maxABMRounds);
-            
+            int maxConv = settings?.maxConversationABM ?? 1;
+            CapConversations(abmList, maxConv);
+
             if (Prefs.DevMode)
             {
                 Log.Message($"[UnifiedMemoryInjector] ABM collected: {abmList.Count}/{maxABMRounds} for {pawn.LabelShort}");
             }
             
-            // Step 2: 计算剩余配额
+            // Step 2: Collect ELS/CLPA, then cap raw conversations (catches SCM)
             int remainingQuota = maxTotalMemories - abmList.Count;
-            
-            // Step 3: 采集 ELS/CLPA（如果有剩余配额）
             var elsList = new List<MemoryEntry>();
             if (remainingQuota > 0)
             {
                 elsList = ELSCollector.Collect(pawn, dialogueContext, remainingQuota);
-                
+
                 if (Prefs.DevMode)
                 {
                     Log.Message($"[UnifiedMemoryInjector] ELS/CLPA collected: {elsList.Count}/{remainingQuota} for {pawn.LabelShort}");
                 }
             }
             
-            // Step 4: 合并记忆列表
+            // Step 3: Merge, cap again and format
             var allMemories = new List<MemoryEntry>();
             allMemories.AddRange(abmList);
             allMemories.AddRange(elsList);
-            
+            CapConversations(allMemories, maxConv);
+
             if (allMemories.Count == 0)
             {
-                return string.Empty;
+                return "(No available memory due to filter)";
             }
-            
             if (Prefs.DevMode)
             {
                 Log.Message($"[UnifiedMemoryInjector] Total memories: {allMemories.Count}/{maxTotalMemories} for {pawn.LabelShort}");
             }
-            
-            // Step 5: 统一编号格式化
-            return MemoryFormatter.Format(allMemories, startIndex: 1);
-        }
-        
-        /// <summary>
-        /// 注入记忆（带详细信息返回）
-        /// 用于调试和预览
-        /// </summary>
-        public static string InjectWithDetails(
-            Pawn pawn, 
-            string dialogueContext,
-            out int abmCount,
-            out int elsCount,
-            out int totalCount)
-        {
-            abmCount = 0;
-            elsCount = 0;
-            totalCount = 0;
-            
-            if (pawn == null)
-                return string.Empty;
-            
-            var settings = RimTalkMemoryPatchMod.Settings;
-            int maxABMRounds = settings?.maxABMInjectionRounds ?? 3;
-            int maxTotalMemories = settings?.maxInjectedMemories ?? 10;
-            
-            // 采集 ABM
-            var abmList = ABMCollector.Collect(pawn, maxABMRounds);
-            abmCount = abmList.Count;
-            
-            // 计算剩余配额
-            int remainingQuota = maxTotalMemories - abmList.Count;
-            
-            // 采集 ELS/CLPA
-            var elsList = new List<MemoryEntry>();
-            if (remainingQuota > 0)
-            {
-                elsList = ELSCollector.Collect(pawn, dialogueContext, remainingQuota);
-            }
-            elsCount = elsList.Count;
-            
-            // 合并
-            var allMemories = new List<MemoryEntry>();
-            allMemories.AddRange(abmList);
-            allMemories.AddRange(elsList);
-            totalCount = allMemories.Count;
-            
-            if (allMemories.Count == 0)
-            {
-                return string.Empty;
-            }
-            
             return MemoryFormatter.Format(allMemories, startIndex: 1);
         }
         
@@ -144,13 +91,38 @@ namespace RimTalk.Memory.Injection
             int maxABMRounds = settings?.maxABMInjectionRounds ?? 3;
             
             var abmList = ABMCollector.Collect(pawn, maxABMRounds);
-            
+
+            // Cap conversation memories
+            int maxConv = settings?.maxConversationABM ?? 1;
+            CapConversations(abmList, maxConv);
+
             if (abmList.Count == 0)
             {
                 return "(No ABM memories)";
             }
             
             return MemoryFormatter.Format(abmList, startIndex: 1);
+        }
+
+        // Have removed unused InjectWithDetails()
+
+        // Cap raw conversation entries (Active/Situational layers only, ELS/CLPA summaries ignored)
+        private static bool IsRawConversation(MemoryEntry m)
+            => m.type == MemoryType.Conversation && (m.layer == MemoryLayer.Active || m.layer == MemoryLayer.Situational);
+
+        private static void CapConversations(List<MemoryEntry> memories, int max)
+        {
+            if (max <= 0)
+            {
+                memories.RemoveAll(m => IsRawConversation(m));
+                return;
+            }
+            var convs = memories.Where(m => IsRawConversation(m)).ToList();
+            if (convs.Count > max)
+            {
+                var keep = convs.OrderBy(_ => Rand.Value).Take(max).ToHashSet();
+                memories.RemoveAll(m => IsRawConversation(m) && !keep.Contains(m));
+            }
         }
     }
 }
