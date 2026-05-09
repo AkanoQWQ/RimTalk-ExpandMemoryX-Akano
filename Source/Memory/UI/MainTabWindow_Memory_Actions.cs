@@ -63,7 +63,10 @@ namespace RimTalk.Memory.UI
                         MemoryLayer.EventLog,
                         currentMemoryComp.SituationalMemories,
                         currentMemoryComp.EventLogMemories,
-                        "daily_summary"
+                        "daily_summary",
+                        "选中总结",
+                        null,
+                        0.2f
                     );
                     
                     // ? 总结后清空ABM（因为已经总结过了）
@@ -104,7 +107,10 @@ namespace RimTalk.Memory.UI
                         MemoryLayer.Archive,
                         currentMemoryComp.EventLogMemories,
                         currentMemoryComp.ArchiveMemories,
-                        "deep_archive"
+                        "deep_archive",
+                        "手动归档",
+                        "源自{0}条ELS",
+                        0.3f
                     );
                     
                     selectedMemories.Clear();
@@ -164,6 +170,44 @@ namespace RimTalk.Memory.UI
             }
         }
         
+        private void MergeCLPAMemories(List<MemoryEntry> targetMemories)
+        {
+            if (currentMemoryComp == null || targetMemories == null || targetMemories.Count == 0)
+                return;
+
+            var clpaMemories = targetMemories
+                .Where(m => m.layer == MemoryLayer.Archive && m.CanBeSummarized)
+                .ToList();
+
+            if (clpaMemories.Count < 2)
+            {
+                Messages.Message("RimTalk_MindStream_NoCLPASelected".Translate(), MessageTypeDefOf.RejectInput, false);
+                return;
+            }
+
+            Find.WindowStack.Add(Dialog_MessageBox.CreateConfirmation(
+                "RimTalk_MindStream_MergeConfirm".Translate(clpaMemories.Count),
+                delegate
+                {
+                    AggregateMemories(
+                        clpaMemories,
+                        MemoryLayer.Archive,
+                        currentMemoryComp.ArchiveMemories,
+                        currentMemoryComp.ArchiveMemories,
+                        "clpa_merge",
+                        "CLPA合并",
+                        "源自{0}条CLPA",
+                        0.3f
+                    );
+
+                    selectedMemories.Clear();
+                    filtersDirty = true;
+                    Messages.Message("RimTalk_MindStream_MergedN".Translate(clpaMemories.Count), MessageTypeDefOf.PositiveEvent, false);
+                }
+            ));
+        }
+
+        // [TODO] handle in future
         private void ArchiveAll()
         {
             int count = 0;

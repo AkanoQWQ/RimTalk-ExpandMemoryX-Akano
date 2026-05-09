@@ -86,6 +86,7 @@ namespace RimTalk.MemoryPatch
         // AI 总结提示词配置
         public string dailySummaryPrompt = "";  // 空字符串表示使用默认
         public string deepArchivePrompt = "";   // 空字符串表示使用默认
+        public string clpaMergePrompt = "";     // 空字符串表示使用默认
         public int summaryMaxTokens = 8000;  // ⭐ v3.4.0: 调整默认值为 8000
 
         // UI 设置
@@ -218,6 +219,7 @@ namespace RimTalk.MemoryPatch
             
             Scribe_Values.Look(ref dailySummaryPrompt, "ai_dailySummaryPrompt", "");
             Scribe_Values.Look(ref deepArchivePrompt, "ai_deepArchivePrompt", "");
+            Scribe_Values.Look(ref clpaMergePrompt, "ai_clpaMergePrompt", "");
             Scribe_Values.Look(ref summaryMaxTokens, "ai_summaryMaxTokens", 8000);  // ⭐ v3.4.0: 与字段默认值同步
             Scribe_Values.Look(ref customApiFields, "ai_customApiFields", "");
             Scribe_Values.Look(ref originalCustomApiFields, "ai_originalCustomApiFields", "");

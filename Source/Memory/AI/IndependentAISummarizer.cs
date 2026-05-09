@@ -426,7 +426,28 @@ namespace RimTalk.Memory.AI
             {
                 if (completedSummaries.TryGetValue(cacheKey, out string summary))
                 {
-                    return summary; // Return cached result directly if available
+                    // When cache hits, we MUST still invoke callbacks.
+                    // Before this fix, cache hits returned summary without firing callbacks,
+                    // causing the merged entry to permanently display the fallback placeholder
+                    // (e.g. "对话N条") because the callback that replaces content + tags never ran.
+                    // This is especially noticeable when the player saves/loads the game —
+                    // completedSummaries is static (process-level), so the cache persists
+                    // across save/load, but the UI state (MemoryEntry references) is fresh.
+                    lock (callbackMap)
+                    {
+                        if (callbackMap.TryGetValue(cacheKey, out var cachedCallbacks))
+                        {
+                            foreach (var cb in cachedCallbacks)
+                            {
+                                lock (mainThreadActions)
+                                {
+                                    mainThreadActions.Enqueue(() => cb(summary));
+                                }
+                            }
+                            callbackMap.Remove(cacheKey);
+                        }
+                    }
+                    return summary;
                 }
             }
 
@@ -560,7 +581,7 @@ namespace RimTalk.Memory.AI
                 else
                 {
                     // 使用默认提示词
-                    promptTemplate = 
+                    promptTemplate =
                         "殖民者{0}的记忆归档\n\n" +
                         "记忆列表\n" +
                         "{1}\n\n" +
@@ -568,6 +589,26 @@ namespace RimTalk.Memory.AI
                         "合并相似经历突出长期趋势\n" +
                         "极简表达不超过60字\n" +
                         "只输出总结文字不要其他格式";
+                }
+            }
+            else if (template == "clpa_merge")
+            {
+                // CLPA合并
+                if (!string.IsNullOrEmpty(settings.clpaMergePrompt))
+                {
+                    promptTemplate = settings.clpaMergePrompt;
+                }
+                else
+                {
+                    promptTemplate =
+                        "殖民者{0}的CLPA档案合并\n\n" +
+                        "档案列表\n" +
+                        "{1}\n\n" +
+                        "要求将多份档案融合为一份连贯的长期记忆\n" +
+                        "提取共同主题和长期模式\n" +
+                        "消除冗余保留关键信息\n" +
+                        "极简表达不超过120字\n" +
+                        "只输出合并后的档案文字";
                 }
             }
             else

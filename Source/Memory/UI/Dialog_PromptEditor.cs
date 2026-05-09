@@ -15,6 +15,7 @@ namespace RimTalk.Memory.UI
         // 临时编辑变量
         private string editDailySummary;
         private string editDeepArchive;
+        private string editClpaMerge;
         private int editMaxTokens;
         
         // 默认提示词（从 IndependentAISummarizer 复制）
@@ -27,7 +28,7 @@ namespace RimTalk.Memory.UI
             "极简表达不超过80字\n" +
             "只输出总结文字不要其他格式";
         
-        private const string DEFAULT_DEEP_ARCHIVE = 
+        private const string DEFAULT_DEEP_ARCHIVE =
             "殖民者{0}的记忆归档\n\n" +
             "记忆列表\n" +
             "{1}\n\n" +
@@ -35,6 +36,16 @@ namespace RimTalk.Memory.UI
             "合并相似经历突出长期趋势\n" +
             "极简表达不超过60字\n" +
             "只输出总结文字不要其他格式";
+
+        private const string DEFAULT_CLPA_MERGE =
+            "殖民者{0}的CLPA档案合并\n\n" +
+            "档案列表\n" +
+            "{1}\n\n" +
+            "要求将多份档案融合为一份连贯的长期记忆\n" +
+            "提取共同主题和长期模式\n" +
+            "消除冗余保留关键信息\n" +
+            "极简表达不超过120字\n" +
+            "只输出合并后的档案文字";
         
         private Vector2 scrollPosition = Vector2.zero;
         
@@ -54,10 +65,14 @@ namespace RimTalk.Memory.UI
                 ? DEFAULT_DAILY_SUMMARY 
                 : settings.dailySummaryPrompt;
                 
-            editDeepArchive = string.IsNullOrEmpty(settings.deepArchivePrompt) 
-                ? DEFAULT_DEEP_ARCHIVE 
+            editDeepArchive = string.IsNullOrEmpty(settings.deepArchivePrompt)
+                ? DEFAULT_DEEP_ARCHIVE
                 : settings.deepArchivePrompt;
-                
+
+            editClpaMerge = string.IsNullOrEmpty(settings.clpaMergePrompt)
+                ? DEFAULT_CLPA_MERGE
+                : settings.clpaMergePrompt;
+
             editMaxTokens = settings.summaryMaxTokens;
         }
         
@@ -95,6 +110,7 @@ namespace RimTalk.Memory.UI
                     {
                         editDailySummary = DEFAULT_DAILY_SUMMARY;
                         editDeepArchive = DEFAULT_DEEP_ARCHIVE;
+                        editClpaMerge = DEFAULT_CLPA_MERGE;
                         editMaxTokens = 200;
                     }
                 ));
@@ -119,7 +135,7 @@ namespace RimTalk.Memory.UI
         private void DrawContent(Rect rect)
         {
             Listing_Standard listing = new Listing_Standard();
-            Rect viewRect = new Rect(0f, 0f, rect.width - 20f, 900f);
+            Rect viewRect = new Rect(0f, 0f, rect.width - 20f, 1200f);
             
             Widgets.BeginScrollView(rect, ref scrollPosition, viewRect);
             listing.Begin(viewRect);
@@ -156,7 +172,25 @@ namespace RimTalk.Memory.UI
             
             Rect archiveRect = listing.GetRect(180f);
             editDeepArchive = Widgets.TextArea(archiveRect, editDeepArchive);
-            
+
+            listing.Gap(15f);
+            listing.GapLine();
+            listing.Gap(10f);
+
+            // CLPA合并提示词
+            GUI.color = new Color(0.8f, 0.9f, 1f);
+            listing.Label("RimTalk_PromptEditor_ClpaMerge".Translate());
+            GUI.color = Color.white;
+
+            GUI.color = Color.gray;
+            listing.Label("RimTalk_PromptEditor_ClpaMergeDesc".Translate());
+            listing.Label("RimTalk_PromptEditor_Placeholders".Translate());
+            GUI.color = Color.white;
+            listing.Gap(4f);
+
+            Rect mergeRect = listing.GetRect(180f);
+            editClpaMerge = Widgets.TextArea(mergeRect, editClpaMerge);
+
             listing.Gap(15f);
             listing.GapLine();
             listing.Gap(10f);
@@ -196,10 +230,14 @@ namespace RimTalk.Memory.UI
                 ? "" 
                 : editDailySummary;
                 
-            settings.deepArchivePrompt = (editDeepArchive == DEFAULT_DEEP_ARCHIVE) 
-                ? "" 
+            settings.deepArchivePrompt = (editDeepArchive == DEFAULT_DEEP_ARCHIVE)
+                ? ""
                 : editDeepArchive;
-                
+
+            settings.clpaMergePrompt = (editClpaMerge == DEFAULT_CLPA_MERGE)
+                ? ""
+                : editClpaMerge;
+
             settings.summaryMaxTokens = editMaxTokens;
             
             // 保存设置

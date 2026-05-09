@@ -20,7 +20,10 @@ namespace RimTalk.Memory.UI
             MemoryLayer targetLayer,
             List<MemoryEntry> sourceList,
             List<MemoryEntry> targetList,
-            string promptTemplate)
+            string promptTemplate,
+            string operationTag,
+            string sourceDescFormat,
+            float importanceBonus)
         {
             // ⭐ 修复：过滤掉已总结记忆（不应该被总结）（memories在输入前就已经过滤过了，这一步其实是多余的，但先留着吧）
             var memoriesToSummarize = memories.Where(m => m.CanBeSummarized).ToList();
@@ -35,6 +38,10 @@ namespace RimTalk.Memory.UI
             }
 
             // 修复分组总结的bug
+            // m is not a reference and this leads to:
+            // 1. Always return only one merged memory
+            // 2. Always return MemoryType.Conversation
+            // This should be a bug or "feature". I decide to keep it
             var byType = memoriesToSummarize.GroupBy(m => MemoryType.Conversation);
 
             foreach (var typeGroup in byType)
@@ -51,7 +58,7 @@ namespace RimTalk.Memory.UI
                         : CreateSimpleSummary(items, typeGroup.Key),
                     type: typeGroup.Key,
                     layer: targetLayer,
-                    importance: items.Average(m => m.importance) + (targetLayer == MemoryLayer.Archive ? 0.3f : 0.2f)
+                    importance: items.Average(m => m.importance) + importanceBonus
                 );
 
                 // ⭐ 修复：覆盖默认的timestamp（MemoryEntry构造函数会自动设置为当前时间）
@@ -60,10 +67,10 @@ namespace RimTalk.Memory.UI
                 // 合并元数据
                 aggregated.keywords.AddRange(items.SelectMany(m => m.keywords).Distinct());
                 aggregated.tags.AddRange(items.SelectMany(m => m.tags).Distinct());
-                aggregated.AddTag(targetLayer == MemoryLayer.Archive ? "手动归档" : "选中总结");
-                if (targetLayer == MemoryLayer.Archive)
+                aggregated.AddTag(operationTag);
+                if (!string.IsNullOrEmpty(sourceDescFormat))
                 {
-                    aggregated.AddTag($"源自{items.Count}条ELS");
+                    aggregated.AddTag(string.Format(sourceDescFormat, items.Count));
                 }
 
                 // ⭐ AI总结（如果可用）
@@ -72,23 +79,32 @@ namespace RimTalk.Memory.UI
                 {
                     string cacheKey = AI.IndependentAISummarizer.ComputeCacheKey(selectedPawn, items);
 
+                    bool isMerge = operationTag == "CLPA合并";
+                    string simpleTag = isMerge ? "简单合并" :
+                        (targetLayer == MemoryLayer.Archive ? "简单归档" : "简单总结");
+                    string aiSuccessTag = isMerge ? "AI合并" :
+                        (targetLayer == MemoryLayer.Archive ? "AI归档" : "AI总结");
+                    string aiDoneNotes = isMerge ? "合并已完成" :
+                        (targetLayer == MemoryLayer.Archive ? "深度归档已完成" : "总结已完成");
+                    string aiPendingNotes = isMerge ? "合并在后台处理中..." :
+                        (targetLayer == MemoryLayer.Archive ? "深度归档正在后台处理中..." : "总结正在后台处理中...");
+
                     AI.IndependentAISummarizer.RegisterCallback(cacheKey, (aiSummary) =>
                     {
                         if (!string.IsNullOrEmpty(aiSummary))
                         {
                             aggregated.content = aiSummary;
-                            aggregated.RemoveTag("简单总结");
-                            aggregated.RemoveTag("简单归档");
-                            aggregated.AddTag(targetLayer == MemoryLayer.Archive ? "AI归档" : "AI总结");
-                            aggregated.notes = $"AI {(targetLayer == MemoryLayer.Archive ? "深度归档" : "总结")}已完成";
+                            aggregated.RemoveTag(simpleTag);
+                            aggregated.AddTag(aiSuccessTag);
+                            aggregated.notes = $"AI {aiDoneNotes}";
                         }
                     });
 
                     AI.IndependentAISummarizer.SummarizeMemories(selectedPawn, items, promptTemplate);
 
-                    aggregated.AddTag("简单" + (targetLayer == MemoryLayer.Archive ? "归档" : "总结"));
+                    aggregated.AddTag(simpleTag);
                     aggregated.AddTag("待AI更新");
-                    aggregated.notes = $"AI {(targetLayer == MemoryLayer.Archive ? "深度归档" : "总结")}正在后台处理中...";
+                    aggregated.notes = $"AI {aiPendingNotes}";
                 }
 
                 // ⭐ 修复：根据时间戳插入到正确位置，而不是总是插入到开头
@@ -100,8 +116,17 @@ namespace RimTalk.Memory.UI
                 if (memory != null) memory.IsSummarized = true;
             }
 
-            // ⭐ 修复：只从源列表中移除非固定记忆
-            sourceList.RemoveAll(m => m == null || !m.isPinned);
+            // Original: sourceList.RemoveAll(m => m == null || !m.isPinned);
+            // Remove only the specific entries that were summarized, not everything in sourceList.
+            // This avoids wiping unrelated entries when sourceList == targetList (e.g. CLPA merge).
+            // However, it did work in previous version. I don't know why!
+            foreach (var memory in memoriesToSummarize)
+            {
+                if (memory != null && !memory.isPinned && sourceList.Contains(memory))
+                {
+                    sourceList.Remove(memory);
+                }
+            }
         }
 
         /// <summary>

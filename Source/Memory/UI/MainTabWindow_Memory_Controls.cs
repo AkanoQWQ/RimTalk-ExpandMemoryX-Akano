@@ -279,7 +279,18 @@ namespace RimTalk.Memory.UI
             }
             GUI.enabled = true;
             y += buttonHeight + spacing;
-            
+
+            // Merge CLPA (CLPA -> CLPA) — only selected, never all
+            int clpaCount = targetMemories.Count(m => m.layer == MemoryLayer.Archive);
+            GUI.enabled = hasSelection && clpaCount >= 2;
+            string mergeLabel = "RimTalk_MindStream_MergeN".Translate(clpaCount);
+            if (Widgets.ButtonText(new Rect(parentRect.x, y, parentRect.width, buttonHeight), mergeLabel))
+            {
+                MergeCLPAMemories(targetMemories);
+            }
+            GUI.enabled = true;
+            y += buttonHeight + spacing;
+
             // Delete Selected/All
             GUI.enabled = targetCount > 0;
             GUI.color = targetCount > 0 ? new Color(1f, 0.4f, 0.4f) : Color.white;
