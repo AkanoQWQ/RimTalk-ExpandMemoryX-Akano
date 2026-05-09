@@ -83,6 +83,10 @@
   <RimTalk_MindStream_ArchivedN>Archived {0} memories</RimTalk_MindStream_ArchivedN>
   <RimTalk_MindStream_DeleteConfirm>Delete {0} selected memories?</RimTalk_MindStream_DeleteConfirm>
   <RimTalk_MindStream_DeletedN>Deleted {0} memories</RimTalk_MindStream_DeletedN>
+  <RimTalk_MindStream_MergeN>Merge CLPA ({0})</RimTalk_MindStream_MergeN>
+  <RimTalk_MindStream_NoCLPASelected>At least 2 CLPA memories required to merge</RimTalk_MindStream_NoCLPASelected>
+  <RimTalk_MindStream_MergeConfirm>Merge {0} CLPA archives into one?</RimTalk_MindStream_MergeConfirm>
+  <RimTalk_MindStream_MergedN>Merged {0} CLPA memories</RimTalk_MindStream_MergedN>
   <RimTalk_MindStream_QueuedSummarization>Queued summarization for {0} colonists</RimTalk_MindStream_QueuedSummarization>
   <RimTalk_MindStream_NoNeedSummarization>No colonists need summarization</RimTalk_MindStream_NoNeedSummarization>
   <RimTalk_MindStream_ArchivedForN>Archived memories for {0} colonists</RimTalk_MindStream_ArchivedForN>
@@ -457,6 +461,8 @@
   <RimTalk_PromptEditor_Placeholders>Placeholders: {0}=Colonist Name, {1}=Memory List</RimTalk_PromptEditor_Placeholders>
   <RimTalk_PromptEditor_DeepArchive>Deep Archive Prompt</RimTalk_PromptEditor_DeepArchive>
   <RimTalk_PromptEditor_DeepArchiveDesc>Used for deep ELS → CLPA archiving (processes ~15 memories)</RimTalk_PromptEditor_DeepArchiveDesc>
+  <RimTalk_PromptEditor_ClpaMerge>CLPA Merge Prompt</RimTalk_PromptEditor_ClpaMerge>
+  <RimTalk_PromptEditor_ClpaMergeDesc>Used for CLPA → CLPA archive merging (processes multiple CLPA archives)</RimTalk_PromptEditor_ClpaMergeDesc>
   <RimTalk_PromptEditor_MaxTokens>Maximum Output Tokens</RimTalk_PromptEditor_MaxTokens>
   <RimTalk_PromptEditor_MaxTokensDesc>Controls the maximum length of the AI-generated summary.</RimTalk_PromptEditor_MaxTokensDesc>
   <RimTalk_PromptEditor_MaxTokensLabel>Max Tokens: {0}</RimTalk_PromptEditor_MaxTokensLabel>

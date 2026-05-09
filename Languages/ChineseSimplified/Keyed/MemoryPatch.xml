@@ -41,6 +41,7 @@
   <RimTalk_MindStream_SummarizeSelected>总结选中</RimTalk_MindStream_SummarizeSelected>
   <RimTalk_MindStream_ArchiveN>归档 ({0})</RimTalk_MindStream_ArchiveN>
   <RimTalk_MindStream_ArchiveSelected>归档选中</RimTalk_MindStream_ArchiveSelected>
+  <RimTalk_MindStream_MergeN>合并CLPA ({0})</RimTalk_MindStream_MergeN>
   <RimTalk_MindStream_DeleteN>删除 ({0})</RimTalk_MindStream_DeleteN>
   <RimTalk_MindStream_DeleteSelected>删除选中</RimTalk_MindStream_DeleteSelected>
 
@@ -81,6 +82,9 @@
   <RimTalk_MindStream_NoELSSelected>没有选中ELS记忆</RimTalk_MindStream_NoELSSelected>
   <RimTalk_MindStream_ArchiveConfirm>将 {0} 条ELS记忆归档到CLPA？</RimTalk_MindStream_ArchiveConfirm>
   <RimTalk_MindStream_ArchivedN>已归档 {0} 条记忆</RimTalk_MindStream_ArchivedN>
+  <RimTalk_MindStream_NoCLPASelected>至少需要2条CLPA记忆才能合并</RimTalk_MindStream_NoCLPASelected>
+  <RimTalk_MindStream_MergeConfirm>将 {0} 条CLPA档案合并为一份？</RimTalk_MindStream_MergeConfirm>
+  <RimTalk_MindStream_MergedN>已合并 {0} 条CLPA记忆</RimTalk_MindStream_MergedN>
   <RimTalk_MindStream_DeleteConfirm>删除 {0} 条选中的记忆？</RimTalk_MindStream_DeleteConfirm>
   <RimTalk_MindStream_DeletedN>已删除 {0} 条记忆</RimTalk_MindStream_DeletedN>
   <RimTalk_MindStream_QueuedSummarization>已为 {0} 名殖民者排队总结</RimTalk_MindStream_QueuedSummarization>
@@ -457,6 +461,8 @@
   <RimTalk_PromptEditor_Placeholders>占位符: {0}=殖民者名字, {1}=记忆列表</RimTalk_PromptEditor_Placeholders>
   <RimTalk_PromptEditor_DeepArchive>深度归档提示词</RimTalk_PromptEditor_DeepArchive>
   <RimTalk_PromptEditor_DeepArchiveDesc>用于 ELS → CLPA 的深度归档（处理约15条记忆）</RimTalk_PromptEditor_DeepArchiveDesc>
+  <RimTalk_PromptEditor_ClpaMerge>CLPA合并提示词</RimTalk_PromptEditor_ClpaMerge>
+  <RimTalk_PromptEditor_ClpaMergeDesc>用于 CLPA → CLPA 的档案合并（处理多条CLPA档案）</RimTalk_PromptEditor_ClpaMergeDesc>
   <RimTalk_PromptEditor_MaxTokens>最大输出 Tokens</RimTalk_PromptEditor_MaxTokens>
   <RimTalk_PromptEditor_MaxTokensDesc>控制 AI 生成总结的最大长度</RimTalk_PromptEditor_MaxTokensDesc>
   <RimTalk_PromptEditor_MaxTokensLabel>Max Tokens: {0}</RimTalk_PromptEditor_MaxTokensLabel>
