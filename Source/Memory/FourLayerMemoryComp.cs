@@ -827,6 +827,7 @@ namespace RimTalk.Memory
         }
 
         // 此方法未正确处理固定的记忆
+        // [TODO] Remove dead code
         public void ManualArchive()
         {
             if (eventLogMemories.Count == 0) return;
