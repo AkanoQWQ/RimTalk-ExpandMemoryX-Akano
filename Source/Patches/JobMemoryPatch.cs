@@ -60,6 +60,7 @@ namespace RimTalk.Patches
         /// <summary>
         /// ⭐ 构建工作描述（智能占位符替换）
         /// </summary>
+        /// Always add target postfix in the end now
         private static string BuildJobDescription(Job job, Pawn pawn)
         {
             // 1. 先尝试使用 GetReport()（处理标准占位符）
@@ -77,8 +78,60 @@ namespace RimTalk.Patches
                     content = ReplaceAllPlaceholders(content, targetName);
                 }
             }
-            
+
+            // Always try to append target info not already in the report
+            content = AppendMissingTargets(content, job, pawn);
+
             return content;
+        }
+
+        // Append target labels that are missing from the content
+        private static string AppendMissingTargets(string content, Job job, Pawn pawn)
+        {
+            AppendTargetLabel(job.targetA, ref content, pawn);
+            AppendTargetLabel(job.targetB, ref content, pawn);
+            AppendTargetLabel(job.targetC, ref content, pawn);
+            return content;
+        }
+
+        private static void AppendTargetLabel(LocalTargetInfo target, ref string content, Pawn pawn)
+        {
+            if (!target.IsValid) return;
+
+            string label = GetBestTargetLabel(target, pawn);
+            if (string.IsNullOrEmpty(label)) return;
+            if (content.Contains(label)) return;
+
+            content = $"{content} (target:{label})";
+        }
+
+        // Get the meaningful label for a target
+        // Handle Blueprint/Frame specially
+        private static string GetBestTargetLabel(LocalTargetInfo target, Pawn pawn)
+        {
+            if (!target.HasThing || target.Thing == pawn) return "";
+
+            Thing thing = target.Thing;
+
+            if (thing is Blueprint blueprint)
+            {
+                var entityDef = blueprint.def.entityDefToBuild;
+                if (entityDef != null && !string.IsNullOrEmpty(entityDef.label))
+                    return entityDef.label;
+            }
+            else if (thing is Frame frame)
+            {
+                var entityDef = frame.def.entityDefToBuild;
+                if (entityDef != null && !string.IsNullOrEmpty(entityDef.label))
+                    return entityDef.label;
+            }
+
+            string label = thing.LabelShort ?? thing.def?.label ?? "";
+
+            if (string.IsNullOrEmpty(label)) return "";
+            if (!IsValidTargetName(label)) return "";
+
+            return label;
         }
         
         /// <summary>
